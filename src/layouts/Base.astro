@@ -1,27 +1,50 @@
 ---
 import "../styles/global.css";
-import { site } from "../lib/data";
-const { title, description = "", bodyClass = "" } = Astro.props;
-const name = site.business.name.startsWith("[") ? site.business.short : site.business.name;
+import { brandName, url, type Lang } from "../lib/data";
+const { title, description = "", lang = "th", alt = "/" } = Astro.props as { title?: string; description?: string; lang?: Lang; alt?: string };
+// `alt` is this page's path without the language prefix, e.g. "/portfolio/".
+const name = brandName(lang);
+const other: Lang = lang === "th" ? "en" : "th";
+const otherHref = url(alt, other);
 ---
 <!doctype html>
-<html lang="th">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title ? `${title} · ${name}` : name}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/png" href={url("/favicon.png")} />
+    <link rel="apple-touch-icon" href={url("/apple-touch-icon.png")} />
+    <link rel="alternate" hreflang="th" href={url(alt, "th")} />
+    <link rel="alternate" hreflang="en" href={url(alt, "en")} />
+    <meta name="lang-alt" content={otherHref} />
+    <script is:inline define:vars={{ lang, otherHref }}>
+      // Remember the chosen language: Thai pages send visitors who chose English to the English page.
+      try {
+        const saved = localStorage.getItem("lang");
+        if (lang === "th" && saved === "en") location.replace(otherHref + location.search + location.hash);
+        else if (lang === "en") localStorage.setItem("lang", "en");
+      } catch (_) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500;600&display=swap" />
   </head>
-  <body class={bodyClass}>
+  <body>
     <slot />
     <script>
+      // Language switch: remember the choice and keep filters/anchors.
+      document.addEventListener("click", (e) => {
+        const a = (e.target as Element).closest<HTMLAnchorElement>("[data-lang-to]");
+        if (!a) return;
+        try { localStorage.setItem("lang", a.dataset.langTo!); } catch (_) {}
+        a.href = a.href.split(/[?#]/)[0] + location.search + location.hash;
+      });
       // Header turns solid once the full-screen photo has scrolled past.
       const hdr = document.querySelector<HTMLElement>("[data-hdr]");
       if (hdr) {
-        const update = () => hdr.classList.toggle("solid", window.scrollY > window.innerHeight * 0.6 || hdr.dataset.always === "solid");
+        const update = () => hdr.classList.toggle("solid", window.scrollY > window.innerHeight * 0.6);
         update();
         window.addEventListener("scroll", update, { passive: true });
       }

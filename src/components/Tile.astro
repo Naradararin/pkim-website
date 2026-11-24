@@ -1,13 +1,14 @@
 ---
 import Img from "./Img.astro";
-import { url, curtainLabel, type Job } from "../lib/data";
-const { job: j } = Astro.props as { job: Job };
+import { url, view, type Job, type Lang } from "../lib/data";
+const { job: j, lang } = Astro.props as { job: Job; lang: Lang };
+const v = view(j, lang);
 ---
-<a class="tile" href={url(`/portfolio/${j.id}/`)} data-job={j.jobTypes.join("|")} data-curtain={j.curtainTypes.join("|")}>
+<a class="tile" href={url(`/portfolio/${j.id}/`, lang)} data-job={j.jobTypes.join("|")} data-curtain={j.curtainTypes.join("|")}>
   <Img src={j.coverImg} alt="" sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 400px" widths={[480, 800]} />
   {j.level === "High-End" && <span class="lv">HIGH-END</span>}
   <div class="cap">
-    <h3>{j.title}</h3>
-    <div class="m"><span>{j.dateText}</span><span>{j.subtitle || j.province}</span><span>{[...j.jobTypes, ...j.curtainTypes.map(curtainLabel)].join(" · ")}</span></div>
+    <h3>{v.title}</h3>
+    <div class="m"><span>{v.dateText}</span><span>{v.subtitle || v.province}</span><span>{[...v.jobTypes, ...v.curtainTypes].join(" · ")}</span></div>
   </div>
 </a>

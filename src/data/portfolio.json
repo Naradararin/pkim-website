@@ -1,5 +1,5 @@
 {
-  "_readme": "ข้อมูลผลงานทั้งหมด 1 รายการ = 1 งาน. id = ชื่อในลิงก์ (a-z, 0-9, -), folder = ชื่อโฟลเดอร์รูปต้นฉบับ, place = ชื่อสถานที่ (null = แสดงเป็น 'ประเภทบ้าน จังหวัด'), cover = รูปปกลำดับที่ (1 = 01.jpg), featured = 1-3 คือ 3 งานเด่นบนหน้าแรก (null = ไม่ใช่), summary/story = ข้อความเล่าเรื่อง (null = ยังไม่มี)",
+  "_readme": "ข้อมูลผลงาน (แหล่งข้อมูล: planning/portfolio-kaesiness.xlsx). id = ชื่อในลิงก์, folder = โฟลเดอร์รูปต้นฉบับ, place = ชื่อสถานที่ (null = แสดงเป็น 'ประเภทบ้าน จังหวัด'), cover = รูปปกลำดับที่, featured = 1-3 งานเด่นหน้าแรก, summary/story = { th, en } ข้อความเล่าเรื่อง (null = ยังไม่มี). คำแปลประเภทงาน/จังหวัด/ประเภทบ้าน อยู่ใน src/i18n/ui.json",
   "jobTypeOptions": [
     "ผ้าม่าน",
     "วอลเปเปอร์",
@@ -91,12 +91,13 @@
       "housing": "โรงงาน",
       "level": "ทั่วไป",
       "jobTypes": [
-        "วอลเปเปอร์"
+        "วอลเปเปอร์",
+        "ม่านม้วน"
       ],
       "curtainTypes": [],
       "blackout": null,
       "cover": 2,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1CcfagLaZb/",
       "featured": null,
       "summary": null,
       "story": null
@@ -110,14 +111,15 @@
       "housing": "บ้านเดี่ยว",
       "level": "ทั่วไป",
       "jobTypes": [
-        "ผ้าม่าน"
+        "ผ้าม่าน",
+        "วอลเปเปอร์"
       ],
       "curtainTypes": [
         "ลอน"
       ],
       "blackout": "Dimout 80-90%",
       "cover": 3,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/17vUqu9pba/",
       "featured": null,
       "summary": null,
       "story": null
@@ -139,7 +141,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 6,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1A9NtWBwPu/",
       "featured": null,
       "summary": null,
       "story": null
@@ -160,7 +162,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 1,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1K1KgYR5FT/",
       "featured": null,
       "summary": null,
       "story": null
@@ -181,7 +183,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 2,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1CGtGNGdNr/",
       "featured": null,
       "summary": null,
       "story": null
@@ -203,7 +205,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 1,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1E2BqCkR5P/",
       "featured": null,
       "summary": null,
       "story": null
@@ -224,7 +226,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 1,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1FdtJi7Bhw/",
       "featured": null,
       "summary": null,
       "story": null
@@ -245,7 +247,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 1,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/18W6NEb1Yp/",
       "featured": null,
       "summary": null,
       "story": null
@@ -264,7 +266,7 @@
       "curtainTypes": [],
       "blackout": null,
       "cover": 1,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1ABd8uD8sE/",
       "featured": null,
       "summary": null,
       "story": null
@@ -272,7 +274,7 @@
     {
       "id": "a-little-house-in-phu-kwang",
       "folder": "A Little House in Phu Kwang 05-12-22",
-      "place": "A Little House in Phu Kwang",
+      "place": "Phu Kwang",
       "date": "2022-12-05",
       "province": "พิษณุโลก",
       "housing": "บ้านเดี่ยว",
@@ -285,7 +287,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 5,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1CjGthNF6H/",
       "featured": null,
       "summary": null,
       "story": null
@@ -307,7 +309,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 1,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1HqrxERHcP/",
       "featured": null,
       "summary": null,
       "story": null
@@ -326,7 +328,7 @@
       "curtainTypes": [],
       "blackout": null,
       "cover": 2,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1E498GpkfN/",
       "featured": null,
       "summary": null,
       "story": null
@@ -348,7 +350,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 5,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/1Db6UncRFD/",
       "featured": null,
       "summary": null,
       "story": null
@@ -370,7 +372,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 3,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/18PoMELtSx/",
       "featured": null,
       "summary": null,
       "story": null
@@ -391,7 +393,7 @@
       ],
       "blackout": "Dimout 80-90%",
       "cover": 3,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/p/19gA5izZB3/",
       "featured": null,
       "summary": null,
       "story": null

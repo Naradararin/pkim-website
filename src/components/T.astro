@@ -1,8 +1,9 @@
 ---
-// Renders text; marks placeholders ([...]) so they are easy to spot.
-import { isTodo, site } from "../lib/data";
-const { s, as: Tag = "span" } = Astro.props;
-const todo = isTodo(s) && site.showPlaceholderMarks;
-const text = isTodo(s) ? String(s).trim().replace(/^\[|\]$/g, "") : s;
+// Renders a text (plain or { th, en }); marks placeholders ([...]) so they are easy to spot.
+import { isTodo, site, L, t, type Lang } from "../lib/data";
+const { s, lang = "th", as: Tag = "span" } = Astro.props as { s: unknown; lang?: Lang; as?: string; class?: string };
+const raw = L(s, lang);
+const todo = isTodo(raw) && site.showPlaceholderMarks;
+const text = isTodo(raw) ? raw.trim().replace(/^\[|\]$/g, "") : raw;
 ---
-<Tag class:list={[Astro.props.class, { todo }]} title={todo ? "รอข้อมูลจริง" : undefined}>{text}</Tag>
+<Tag class:list={[Astro.props.class, { todo }]} data-todo={todo ? t(lang, "todo") : undefined}>{text}</Tag>
