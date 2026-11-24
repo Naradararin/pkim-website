@@ -1,0 +1,148 @@
+---
+import Base from "../layouts/Base.astro";
+import WorksHeader from "../components/WorksHeader.astro";
+import Img from "../components/Img.astro";
+import T from "../components/T.astro";
+import Tile from "../components/Tile.astro";
+import { site, jobs, featured, photo, url, L, t, term, view, lineHref, JOB_TYPES, CURTAIN_TYPES, type Lang } from "../lib/data";
+
+const { lang } = Astro.props as { lang: Lang };
+const P = site.portfolio;
+const provinces = new Set(jobs.map((j) => j.province)).size;
+const count = (key: "jobTypes" | "curtainTypes", v: string) => jobs.filter((j) => j[key].includes(v)).length;
+const line = lineHref(lang);
+---
+<Base lang={lang} alt="/portfolio/" title={t(lang, "nav.portfolio")}>
+  <WorksHeader lang={lang} alt="/portfolio/" />
+  <main>
+    <section class="scene w-hero">
+      <Img class="bg" src={photo(P.heroPhoto)} alt="" loading="eager" />
+      <div class="wrap inner">
+        <span class="eyebrow">{site.business.brand} · {t(lang, "works.eyebrow")}</span>
+        <h1>{L(P.heroTitle, lang)}</h1>
+        <T as="p" s={P.heroLead} lang={lang} />
+      </div>
+      <a class="scroll" href="#intro">SCROLL ↓</a>
+    </section>
+
+    <section class="w-intro" id="intro">
+      <div class="wrap">
+        <span class="eyebrow">{t(lang, "works.introEyebrow")}</span>
+        <T as="h2" s={P.introQuote} lang={lang} />
+        <T as="p" s={P.introText} lang={lang} />
+        <div class="w-nums">
+          <div><b>{jobs.length}</b><span>{t(lang, "works.statJobs")}</span></div>
+          <div><b>{provinces}</b><span>{t(lang, "works.statProvinces")}</span></div>
+          <div><b>{jobs.filter((j) => j.level === "High-End").length}</b><span>{t(lang, "works.statHighEnd")}</span></div>
+        </div>
+      </div>
+    </section>
+
+    {featured.map((j, i) => {
+      const v = view(j, lang);
+      const href = url(`/portfolio/${j.id}/`, lang);
+      return (
+        <section class:list={["story", { flip: i % 2 }]} id={`featured-${j.id}`}>
+          <div class="wrap grid">
+            <a class="im" href={href} tabindex="-1"><Img src={j.coverImg} alt={v.title} sizes="(max-width: 860px) 100vw, 800px" /></a>
+            <div class="card">
+              <span class="num">{t(lang, "works.featured")} {String(i + 1).padStart(2, "0")}</span>
+              <h2>{v.title}</h2>
+              {v.summary ? <p>{v.summary}</p> : <T as="p" s={t(lang, "works.summaryTodo")} lang={lang} />}
+              <dl class="facts">
+                <dt>{t(lang, "job.date")}</dt><dd>{v.dateText}</dd>
+                <dt>{t(lang, "job.place")}</dt><dd>{v.area}</dd>
+                <dt>{t(lang, "job.jobTypes")}</dt><dd>{v.jobTypes.join(", ")}</dd>
+                {v.curtainTypes.length > 0 && <><dt>{t(lang, "job.curtainTypes")}</dt><dd>{v.curtainTypes.join(", ")}</dd></>}
+                {j.blackout && <><dt>{t(lang, "job.blackout")}</dt><dd>{j.blackout}</dd></>}
+              </dl>
+              <div class="thumbs">
+                {j.photos.filter((p) => p !== j.coverImg).slice(0, 3).map((p) => <div><Img src={p} alt="" sizes="160px" widths={[320]} /></div>)}
+              </div>
+              <div class="actions">
+                <a class="btn dark" href={href}>{t(lang, "works.viewJob")} ({j.photos.length} {t(lang, "works.photos")})</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    })}
+
+    <section class="collection" id="collection">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">{t(lang, "works.collectionEyebrow")}</span>
+          <h2>{t(lang, "works.collection")}</h2>
+        </div>
+        <div class="filters">
+          <div class="fgroup" role="group" aria-label={t(lang, "works.filterType")}>
+            <span class="lbl">{t(lang, "works.filterType")}</span>
+            <button class="chip" type="button" data-f="type" data-v="" aria-pressed="true">{t(lang, "works.all")} <small>{jobs.length}</small></button>
+            {JOB_TYPES.map((x) => <button class="chip" type="button" data-f="type" data-v={x} aria-pressed="false">{term(x, lang)} <small>{count("jobTypes", x)}</small></button>)}
+          </div>
+          <div class="fgroup" role="group" aria-label={t(lang, "works.filterCurtain")}>
+            <span class="lbl">{t(lang, "works.filterCurtain")}</span>
+            <button class="chip" type="button" data-f="curtain" data-v="" aria-pressed="true">{t(lang, "works.all")}</button>
+            {CURTAIN_TYPES.map((x) => <button class="chip" type="button" data-f="curtain" data-v={x} aria-pressed="false">{term(x, lang)} <small>{count("curtainTypes", x)}</small></button>)}
+          </div>
+        </div>
+        <p class="result" id="result" aria-live="polite" data-tpl={t(lang, "works.showing")}>{t(lang, "works.showing", { n: jobs.length })}</p>
+        <div class="mosaic" id="mosaic">
+          {jobs.map((j) => <Tile job={j} lang={lang} />)}
+        </div>
+        <div class="empty" id="empty" hidden>
+          <p>{t(lang, "works.empty")}</p>
+          <a class="btn dark" href={line}>{t(lang, "works.emptyCta")}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene w-cta">
+      <Img class="bg" src={photo(P.ctaPhoto)} alt="" />
+      <div class="wrap inner">
+        <span class="eyebrow">{t(lang, "works.ctaEyebrow")}</span>
+        <h2>{L(P.ctaTitle, lang)}</h2>
+        <div class="row">
+          <a class="btn light" href={line}>{t(lang, "cta.line")}</a>
+          <a class="btn" href={url("/", lang)}>← {t(lang, "nav.backHome")}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const state: Record<string, string> = { type: "", curtain: "" };
+    const tiles = [...document.querySelectorAll<HTMLElement>("#mosaic .tile")];
+    const result = document.getElementById("result")!;
+    function apply(push = true) {
+      let n = 0;
+      for (const el of tiles) {
+        const ok = (!state.type || el.dataset.job!.split("|").includes(state.type)) && (!state.curtain || el.dataset.curtain!.split("|").includes(state.curtain));
+        el.hidden = !ok;
+        if (ok) n++;
+      }
+      document.querySelectorAll<HTMLElement>("[data-f]").forEach((c) => c.setAttribute("aria-pressed", String(state[c.dataset.f!] === c.dataset.v)));
+      result.textContent = result.dataset.tpl!.replace("{n}", String(n));
+      document.getElementById("empty")!.hidden = n > 0;
+      if (push) {
+        const q = new URLSearchParams();
+        if (state.type) q.set("type", state.type);
+        if (state.curtain) q.set("curtain", state.curtain);
+        history.replaceState(null, "", (q.toString() ? "?" + q : location.pathname) + "#collection");
+      }
+    }
+    document.addEventListener("click", (e) => {
+      const c = (e.target as Element).closest<HTMLElement>("[data-f]");
+      if (!c) return;
+      state[c.dataset.f!] = c.dataset.v!;
+      apply();
+    });
+    const q = new URLSearchParams(location.search);
+    if (q.get("type") || q.get("curtain")) {
+      state.type = q.get("type") ?? "";
+      state.curtain = q.get("curtain") ?? "";
+      apply(false);
+      document.getElementById("collection")!.scrollIntoView();
+    }
+  </script>
+</Base>

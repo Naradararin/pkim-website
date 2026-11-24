@@ -1,0 +1,8 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo.png";
+import { brandName, site, type Lang } from "../lib/data";
+const { lang, size = 44 } = Astro.props as { lang: Lang; size?: number };
+---
+<Image src={logo} alt={site.business.brand} width={size} height={size} densities={[1, 2]} format="webp" class="logo-img" loading="eager" />
+<span class="logo-txt">{brandName(lang)}</span>

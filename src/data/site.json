@@ -1,0 +1,109 @@
+{
+  "_readme": "ข้อความทั้งหมดของหน้าแรกและหน้าผลงาน แต่ละข้อความมี th (ไทย) และ en (อังกฤษ). ข้อความที่อยู่ใน [วงเล็บเหลี่ยม] คือที่ยังรอข้อมูลจริง จะขึ้นกรอบเส้นประบนเว็บจนกว่าจะแก้ (ปิดกรอบทั้งหมดได้ที่ showPlaceholderMarks). รูปอ้างอิงแบบ { job: id ผลงาน, n: รูปที่ }",
+  "showPlaceholderMarks": true,
+  "business": {
+    "name": { "th": "เกษสินีการม่าน", "en": "Kasinee Curtains" },
+    "brand": "Golden Lux Curtain & Blinds",
+    "area": { "th": "[พื้นที่ให้บริการ เช่น กรุงเทพฯ · ปทุมธานี · ทั่วประเทศ]", "en": "[Service area, e.g. Bangkok · Pathum Thani · nationwide]" }
+  },
+  "hero": {
+    "title": { "th": "[ประโยคเดียวที่บอกว่า บ้านจะสวยขึ้นแค่ไหน]", "en": "[One line on how much better your home will look]" },
+    "lead": { "th": "[คำโปรยหนึ่งบรรทัด: เราทำอะไร ให้ใคร]", "en": "[One line: what we do and for whom]" },
+    "photo": { "job": "minburi-private-residence", "n": 2 }
+  },
+  "about": {
+    "title": { "th": "[หัวข้อแนะนำตัว เช่น เราเริ่มจากบ้านหลังแรก แล้วไม่เคยหยุด]", "en": "[About headline, e.g. It started with one home, and we never stopped]" },
+    "text": { "th": "[สองถึงสามประโยค เล่าว่าร้านเริ่มทำเพราะอะไร ดูแลลูกค้าแบบไหน และอะไรที่ไม่ยอมลดมาตรฐาน]", "en": "[Two or three sentences: why we started, how we look after clients, what we never compromise on]" },
+    "sign": { "th": "— P'Kim", "en": "— P'Kim" },
+    "photo": { "job": "ban-dong-ma-fai", "n": 1 },
+    "stats": [
+      { "value": "[xx]", "label": { "th": "ปีประสบการณ์", "en": "Years of experience" } },
+      { "value": "[xxx+]", "label": { "th": "งานที่ส่งมอบ", "en": "Projects delivered" } },
+      { "value": "[xx]", "label": { "th": "ทีมช่างของเราเอง", "en": "In-house installers" } }
+    ]
+  },
+  "products": {
+    "title": { "th": "สินค้าหลักของเรา", "en": "Our main products" },
+    "lead": { "th": "กดที่สินค้าเพื่อดูรายละเอียด และผลงานที่ใช้สินค้านั้น", "en": "Tap a product for details and projects that use it" },
+    "items": [
+      {
+        "id": "p1",
+        "name": { "th": "[สินค้าหลัก 1 เช่น ผ้าม่าน]", "en": "[Product 1, e.g. Curtains]" },
+        "sub": { "th": "[เหมาะกับห้องแบบไหน]", "en": "[Best for which rooms]" },
+        "description": { "th": "[คำอธิบาย 2-3 บรรทัด: คืออะไร ใช้วัสดุอะไร จุดเด่น]", "en": "[2-3 lines: what it is, materials, strengths]" },
+        "specs": [
+          [{ "th": "วัสดุ", "en": "Material" }, { "th": "[ระบุ]", "en": "[Specify]" }],
+          [{ "th": "สี/ลาย", "en": "Colours" }, { "th": "[มีกี่แบบ]", "en": "[How many]" }],
+          [{ "th": "ขนาด", "en": "Size" }, { "th": "[สั่งตัดตามหน้างาน?]", "en": "[Made to measure?]" }],
+          [{ "th": "ราคาเริ่มต้น", "en": "From" }, { "th": "[ถ้าอยากแสดง]", "en": "[If shown]" }]
+        ],
+        "jobType": "ผ้าม่าน",
+        "photos": [{ "job": "minburi-private-residence", "n": 6 }, { "job": "d-condo-vivid", "n": 3 }, { "job": "minburi-private-residence", "n": 8 }, { "job": "samkhok", "n": 4 }]
+      },
+      {
+        "id": "p2",
+        "name": { "th": "[สินค้าหลัก 2 เช่น วอลเปเปอร์]", "en": "[Product 2, e.g. Wallpaper]" },
+        "sub": { "th": "[เหมาะกับห้องแบบไหน]", "en": "[Best for which rooms]" },
+        "description": { "th": "[คำอธิบาย 2-3 บรรทัด]", "en": "[2-3 lines]" },
+        "specs": [
+          [{ "th": "วัสดุ", "en": "Material" }, { "th": "[ระบุ]", "en": "[Specify]" }],
+          [{ "th": "สี/ลาย", "en": "Patterns" }, { "th": "[มีกี่แบบ]", "en": "[How many]" }],
+          [{ "th": "ราคาเริ่มต้น", "en": "From" }, { "th": "[ถ้าอยากแสดง]", "en": "[If shown]" }]
+        ],
+        "jobType": "วอลเปเปอร์",
+        "photos": [{ "job": "factory-bangkok-2026-11", "n": 2 }, { "job": "factory-bangkok-2026-11", "n": 6 }, { "job": "factory-bangkok-2026-11", "n": 5 }, { "job": "house-bangkok-2019-06", "n": 5 }]
+      },
+      {
+        "id": "p3",
+        "name": { "th": "[สินค้าหลัก 3 เช่น มู่ลี่ไม้]", "en": "[Product 3, e.g. Wooden blinds]" },
+        "sub": { "th": "[เหมาะกับห้องแบบไหน]", "en": "[Best for which rooms]" },
+        "description": { "th": "[คำอธิบาย 2-3 บรรทัด]", "en": "[2-3 lines]" },
+        "specs": [
+          [{ "th": "วัสดุ", "en": "Material" }, { "th": "[ระบุ]", "en": "[Specify]" }],
+          [{ "th": "สี/ลาย", "en": "Finishes" }, { "th": "[มีกี่แบบ]", "en": "[How many]" }],
+          [{ "th": "ราคาเริ่มต้น", "en": "From" }, { "th": "[ถ้าอยากแสดง]", "en": "[If shown]" }]
+        ],
+        "jobType": "มู่ลี่ไม้",
+        "photos": [{ "job": "house-bangkok-2022-12", "n": 1 }, { "job": "house-bangkok-2022-12", "n": 3 }, { "job": "house-bangkok-2022-12", "n": 4 }, { "job": "house-bangkok-2022-12", "n": 5 }]
+      }
+    ]
+  },
+  "why": {
+    "title": { "th": "ดูใกล้ๆ แล้วจะเห็นความต่าง", "en": "Look closer and you'll see the difference" },
+    "lead": { "th": "[ประโยคสั้นๆ เช่น ภาพจากหน้างานจริง ชี้ให้เห็นทีละจุดว่าเราทำต่างจากร้านทั่วไปอย่างไร]", "en": "[Short line, e.g. A real job site, point by point: how our work differs from a typical shop]" },
+    "photo": { "job": "wat-siri-sawang", "n": 4 },
+    "points": [
+      { "x": 62, "y": 18, "title": { "th": "[จุดที่ 1 เช่น รางและอุปกรณ์]", "en": "[Point 1, e.g. Tracks and hardware]" }, "other": { "th": "[ร้านทั่วไปทำแบบไหน]", "en": "[What typical shops do]" }, "ours": { "th": "[เราทำต่างอย่างไร]", "en": "[What we do differently]" }, "photo": { "job": "minburi-private-residence", "n": 8 } },
+      { "x": 40, "y": 58, "title": { "th": "[จุดที่ 2 เช่น เนื้อผ้าและการเย็บ]", "en": "[Point 2, e.g. Fabric and sewing]" }, "other": { "th": "[ร้านทั่วไปทำแบบไหน]", "en": "[What typical shops do]" }, "ours": { "th": "[เราทำต่างอย่างไร]", "en": "[What we do differently]" }, "photo": { "job": "d-condo-vivid", "n": 5 } },
+      { "x": 74, "y": 66, "title": { "th": "[จุดที่ 3 เช่น วัดและติดตั้งโดยทีมเราเอง]", "en": "[Point 3, e.g. Measured and installed by our own team]" }, "other": { "th": "[ร้านทั่วไปทำแบบไหน]", "en": "[What typical shops do]" }, "ours": { "th": "[เราทำต่างอย่างไร]", "en": "[What we do differently]" }, "photo": { "job": "wat-siri-sawang", "n": 6 } }
+    ]
+  },
+  "portfolioBand": {
+    "title": { "th": "3 ผลงานที่เราภูมิใจ", "en": "Three projects we're proud of" },
+    "lead": { "th": "เลือกมาให้ดูก่อน 3 งาน ดูผลงานทั้งหมดได้ในหน้าผลงาน", "en": "A first look at three projects. See everything in our portfolio." }
+  },
+  "reviews": [
+    { "text": { "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]", "en": "[A real client review, 2-3 lines]" }, "who": { "th": "[คุณ A · บ้านเดี่ยว กรุงเทพ]", "en": "[Khun A · House, Bangkok]" } },
+    { "text": { "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]", "en": "[A real client review, 2-3 lines]" }, "who": { "th": "[คุณ B · คอนโด กรุงเทพ]", "en": "[Khun B · Condo, Bangkok]" } },
+    { "text": { "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]", "en": "[A real client review, 2-3 lines]" }, "who": { "th": "[คุณ C · ทาวน์โฮม ปทุมธานี]", "en": "[Khun C · Townhome, Pathum Thani]" } }
+  ],
+  "contact": {
+    "phones": ["096-836-5245", "089-669-8270"],
+    "line": "@goldenlux.curtain",
+    "lineUrl": "https://line.me/R/ti/p/@goldenlux.curtain",
+    "facebook": { "th": "เพจ Facebook", "en": "Facebook page" },
+    "facebookUrl": "https://www.facebook.com/profile.php?id=100063692205341",
+    "address": { "th": "[ที่อยู่ร้าน]", "en": "[Shop address]" },
+    "hours": { "th": "[เวลาทำการ]", "en": "[Opening hours]" },
+    "mapEmbedUrl": ""
+  },
+  "portfolio": {
+    "heroTitle": { "th": "Portfolio", "en": "Portfolio" },
+    "heroLead": { "th": "[ประโยคสั้นๆ เช่น ทุกบ้านที่เราทำ มีเรื่องเล่าของมันเอง]", "en": "[Short line, e.g. Every home we dress has its own story]" },
+    "heroPhoto": { "job": "minburi-private-residence", "n": 4 },
+    "introQuote": { "th": "[ประโยคเปิดที่บอกตัวตนของงาน เช่น เราไม่ได้แค่ติดตั้ง เราทำให้ห้องเปลี่ยนไป]", "en": "[Opening line, e.g. We don't just install. We change how a room feels]" },
+    "introText": { "th": "[ย่อหน้าสั้นๆ ว่างานแบบไหนที่เราทำ และคัดผลงานในหน้านี้มาอย่างไร]", "en": "[Short paragraph: the work we do and how these projects were chosen]" },
+    "ctaTitle": { "th": "ให้บ้านของคุณเป็นผลงานชิ้นถัดไป", "en": "Let your home be our next project" },
+    "ctaPhoto": { "job": "minburi-private-residence", "n": 17 }
+  }
+}

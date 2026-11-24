@@ -1,0 +1,18 @@
+---
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import LangSwitch from "./LangSwitch.astro";
+import { t, url, lineHref, type Lang } from "../lib/data";
+const { lang, alt } = Astro.props as { lang: Lang; alt: string };
+---
+<header class="w-hdr" data-hdr>
+  <div class="wrap w-bar">
+    <a class="back" href={url("/", lang)}><Icon name="back" /><span class="lbl">{t(lang, "nav.backHome")}</span></a>
+    <a class="brand" href={url("/portfolio/", lang)}><Logo lang={lang} size={40} /><small>PORTFOLIO</small></a>
+    <div class="right">
+      <a class="hide-s" href={url("/portfolio/#collection", lang)}>{t(lang, "nav.allWorks")}</a>
+      <LangSwitch lang={lang} alt={alt} />
+      <a class="btn hide-s" href={lineHref(lang)}>{t(lang, "nav.consult")}</a>
+    </div>
+  </div>
+</header>

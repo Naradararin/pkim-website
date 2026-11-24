@@ -1,0 +1,23 @@
+---
+import Icon from "./Icon.astro";
+import T from "./T.astro";
+import { site, t, L, telHref, type Lang } from "../lib/data";
+const { lang } = Astro.props as { lang: Lang };
+const c = site.contact;
+const items = [
+  ...c.phones.map((p) => ({ icon: "phone", label: t(lang, "contact.phone"), value: p, href: telHref(p) })),
+  { icon: "line", label: "LINE", value: c.line, href: c.lineUrl },
+  { icon: "facebook", label: "Facebook", value: L(c.facebook, lang), href: c.facebookUrl },
+];
+---
+<div class="contact-row">
+  {items.map((i) => {
+    const Tag = i.href ? "a" : "div";
+    return (
+      <Tag class="contact-item" href={i.href || undefined} target={i.href && !i.href.startsWith("tel:") ? "_blank" : undefined} rel="noopener">
+        <Icon name={i.icon} />
+        <span><small>{i.label}</small><T s={i.value} lang={lang} /></span>
+      </Tag>
+    );
+  })}
+</div>

@@ -1,0 +1,8 @@
+---
+import { t, url, type Lang } from "../lib/data";
+const { lang, alt, class: cls = "" } = Astro.props as { lang: Lang; alt: string; class?: string };
+const other: Lang = lang === "th" ? "en" : "th";
+---
+<a class={`lang ${cls}`} href={url(alt, other)} hreflang={other} lang={other} data-lang-to={other} aria-label={t(lang, "lang.switch")}>
+  <span class:list={{ on: lang === "th" }}>TH</span><span aria-hidden="true">/</span><span class:list={{ on: lang === "en" }}>EN</span>
+</a>

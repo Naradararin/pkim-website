@@ -1,0 +1,8 @@
+---
+import Job from "../../views/Job.astro";
+import { jobs } from "../../lib/data";
+export function getStaticPaths() {
+  return jobs.map((job) => ({ params: { id: job.id }, props: { job } }));
+}
+---
+<Job job={Astro.props.job} lang="th" />

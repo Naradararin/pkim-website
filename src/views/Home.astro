@@ -1,0 +1,239 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import T from "../components/T.astro";
+import Icon from "../components/Icon.astro";
+import Logo from "../components/Logo.astro";
+import LangSwitch from "../components/LangSwitch.astro";
+import Contacts from "../components/Contacts.astro";
+import { site, featured, jobs, photo, url, isTodo, L, t, view, brandName, lineHref, telHref, type Lang } from "../lib/data";
+
+const { lang } = Astro.props as { lang: Lang };
+const nav = [
+  ["#about", t(lang, "nav.about")],
+  ["#products", t(lang, "nav.products")],
+  ["#why", t(lang, "nav.why")],
+  ["#portfolio", t(lang, "nav.portfolio")],
+  ["#contact", t(lang, "nav.contact")],
+];
+const c = site.contact;
+const line = lineHref(lang);
+const heroJob = jobs.find((j) => j.id === site.hero.photo.job);
+const lead = L(site.hero.lead, lang);
+---
+<Base lang={lang} alt="/" description={isTodo(lead) ? "" : lead}>
+  <header class="hdr" data-hdr>
+    <div class="wrap bar">
+      <a class="logo" href="#top"><Logo lang={lang} /></a>
+      <nav class="top" aria-label="menu">
+        {nav.map(([h, l]) => <a href={h}>{l}</a>)}
+      </nav>
+      <LangSwitch lang={lang} alt="/" />
+      <a class="btn" href={line}><Icon name="line" /><span class="lbl">{t(lang, "cta.line")}</span></a>
+      <button class="menu-btn" type="button" data-menu aria-label={t(lang, "nav.openMenu")} aria-expanded="false" aria-controls="drawer"><Icon name="menu" /></button>
+    </div>
+  </header>
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" hidden aria-label="menu">
+    <button class="x" type="button" data-close aria-label={t(lang, "nav.closeMenu")}><Icon name="close" /></button>
+    {nav.map(([h, l]) => <a href={h}>{l}</a>)}
+    <a href={url("/portfolio/", lang)}>{t(lang, "nav.allWorks")}</a>
+  </aside>
+
+  <main>
+    <!-- 1 HERO -->
+    <section class="scene hero" id="top">
+      <Img class="bg" src={photo(site.hero.photo)} alt="" loading="eager" />
+      <div class="wrap inner">
+        <T class="eyebrow" s={site.business.area} lang={lang} />
+        <T as="h1" s={site.hero.title} lang={lang} />
+        <T as="p" class="lead" s={site.hero.lead} lang={lang} />
+        <div class="row">
+          <a class="btn light" href="#portfolio">{t(lang, "cta.viewWorks")}</a>
+          <a class="btn" href="#products">{t(lang, "cta.viewProducts")}</a>
+        </div>
+        <div class="foot">
+          {heroJob && <a href={url(`/portfolio/${heroJob.id}/`, lang)}>{t(lang, "hero.photo")} {view(heroJob, lang).title}</a>}
+          <a href="#about">{t(lang, "hero.scroll")}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 ABOUT -->
+    <section class="scene about" id="about">
+      <Img class="bg" src={photo(site.about.photo)} alt="" />
+      <div class="wrap inner">
+        <div class="text">
+          <span class="eyebrow">{t(lang, "about.eyebrow")}</span>
+          <T as="h2" s={site.about.title} lang={lang} />
+          <T as="p" s={site.about.text} lang={lang} />
+          <span class="sign">{L(site.about.sign, lang)}</span>
+          <div class="stats">
+            {site.about.stats.map((s) => <div><T as="b" s={s.value} lang={lang} /><span>{L(s.label, lang)}</span></div>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 PRODUCTS -->
+    <section class="sec products" id="products">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">{t(lang, "products.eyebrow")}</span>
+          <h2>{L(site.products.title, lang)}</h2>
+          <p>{L(site.products.lead, lang)}</p>
+        </div>
+        <div class="pgrid">
+          {site.products.items.map((p, i) => (
+            <button class="pitem" type="button" data-open={`dlg-${p.id}`}>
+              <div class="ph"><Img src={photo(p.photos[0])} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></div>
+              <span class="num">{t(lang, "products.item")} {String(i + 1).padStart(2, "0")}</span>
+              <T as="h3" s={p.name} lang={lang} />
+              <T class="sub" s={p.sub} lang={lang} />
+              <span class="more">{t(lang, "cta.details")}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+      {site.products.items.map((p) => {
+        const used = jobs.filter((j) => j.jobTypes.includes(p.jobType)).slice(0, 3);
+        return (
+          <dialog class="modal" id={`dlg-${p.id}`} aria-label={L(p.name, lang)}>
+            <div class="modal-in">
+              <div class="gallery">
+                <div class="big"><Img src={photo(p.photos[0])} alt="" sizes="(max-width: 720px) 100vw, 560px" /></div>
+                <div class="thumbs">
+                  {p.photos.slice(1, 4).map((ref) => <div><Img src={photo(ref)} alt="" sizes="190px" widths={[400]} /></div>)}
+                </div>
+              </div>
+              <div class="info">
+                <button class="x" type="button" data-close aria-label={t(lang, "close")}><Icon name="close" /></button>
+                <span class="eyebrow">{t(lang, "products.item")}</span>
+                <T as="h2" s={p.name} lang={lang} />
+                <T as="p" s={p.description} lang={lang} />
+                <dl>{p.specs.map(([k, v]) => <><dt>{L(k, lang)}</dt><dd><T s={v} lang={lang} /></dd></>)}</dl>
+                {used.length > 0 && (
+                  <div style="display:grid;gap:8px">
+                    <span class="eyebrow">{t(lang, "products.usedIn")}</span>
+                    <div class="mini">
+                      {used.map((j) => (
+                        <a href={url(`/portfolio/${j.id}/`, lang)}><div class="im"><Img src={j.coverImg} alt="" sizes="120px" widths={[300]} /></div>{view(j, lang).title}</a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <div class="actions">
+                  <a class="btn dark" href={line} data-close-go>{t(lang, "cta.askProduct")}</a>
+                  <a class="btn" href={url(`/portfolio/?type=${encodeURIComponent(p.jobType)}`, lang)}>{t(lang, "nav.allWorks")}</a>
+                </div>
+              </div>
+            </div>
+          </dialog>
+        );
+      })}
+    </section>
+
+    <!-- 4 WHY US -->
+    <section class="sec why" id="why">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">{t(lang, "why.eyebrow")}</span>
+          <h2>{L(site.why.title, lang)}</h2>
+          <T as="p" s={site.why.lead} lang={lang} />
+        </div>
+        <div class="why-grid">
+          <div class="why-photo">
+            <Img src={photo(site.why.photo)} alt={t(lang, "why.photoAlt")} sizes="(max-width: 900px) 100vw, 600px" />
+            {site.why.points.map((p, i) => (
+              <a class="pin" href={`#pt-${i + 1}`} style={`left:${p.x}%;top:${p.y}%`} aria-label={`${t(lang, "why.point")} ${i + 1}`}>{i + 1}</a>
+            ))}
+          </div>
+          <div class="points">
+            {site.why.points.map((p, i) => (
+              <article class="point" id={`pt-${i + 1}`}>
+                <div class="im"><Img src={photo(p.photo)} alt="" sizes="(max-width: 520px) 100vw, 120px" widths={[300, 640]} /></div>
+                <div>
+                  <h3><span class="n">{i + 1}</span><T s={p.title} lang={lang} /></h3>
+                  <div class="cmp">
+                    <div class="other"><small>{t(lang, "why.other")}</small><T s={p.other} lang={lang} /></div>
+                    <div class="ours"><small>{t(lang, "why.ours")}</small><T s={p.ours} lang={lang} /></div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 PORTFOLIO BAND -->
+    <section class="sec pband" id="portfolio">
+      <div class="wrap">
+        <div class="top">
+          <div class="sec-head">
+            <span class="eyebrow">{t(lang, "band.eyebrow")}</span>
+            <h2>{L(site.portfolioBand.title, lang)}</h2>
+            <p>{L(site.portfolioBand.lead, lang)}</p>
+          </div>
+          <a class="btn light" href={url("/portfolio/", lang)}>{t(lang, "cta.seeAll")}</a>
+        </div>
+        <div class="best">
+          {featured.map((j, i) => {
+            const v = view(j, lang);
+            return (
+              <a class="bcard" href={url(`/portfolio/${j.id}/`, lang)}>
+                <div class="im"><Img src={j.coverImg} alt={v.title} sizes="(max-width: 860px) 100vw, 33vw" /><span class="rank">{i + 1}</span></div>
+                <span class="lv">{v.level} · {v.housing}</span>
+                <h3>{v.title}</h3>
+                <div class="m"><span>{v.dateText}</span><span>{v.province}</span><span>{v.jobTypes.join(" · ")}</span></div>
+                <span class="more">{t(lang, "cta.readMore")}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 REVIEWS -->
+    <section class="plain" id="reviews">
+      <div class="wrap">
+        <h2>{t(lang, "reviews.title")}</h2>
+        <div class="reviews">
+          {site.reviews.map((r) => <blockquote><T as="p" s={r.text} lang={lang} /><T as="cite" s={r.who} lang={lang} /></blockquote>)}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 ADDRESS + CONTACT -->
+    <section class="plain" id="contact">
+      <div class="wrap">
+        <h2>{t(lang, "contact.title")}</h2>
+        <div class="contact-grid">
+          <Contacts lang={lang} />
+          <div class="addr">
+            {c.mapEmbedUrl ? <iframe src={c.mapEmbedUrl} title={t(lang, "contact.map")} loading="lazy" referrerpolicy="no-referrer-when-downgrade" /> : <div class="map"><T s={`[${t(lang, "contact.map")} Google Maps]`} lang={lang} /></div>}
+            <T s={c.address} lang={lang} />
+            <T s={c.hours} lang={lang} />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft"><div class="wrap"><span>© {new Date().getFullYear()} {brandName(lang)} · {site.business.brand}</span><span>{c.phones.join(" · ")} · LINE {c.line}</span></div></footer>
+  <div class="fab">
+    <a href={line} aria-label="LINE"><Icon name="line" /></a>
+    <a href={telHref(c.phones[0])} aria-label={t(lang, "contact.phone")}><Icon name="phone" /></a>
+  </div>
+
+  <script>
+    // Product popups
+    document.addEventListener("click", (e) => {
+      const el = e.target as Element;
+      const opener = el.closest<HTMLElement>("[data-open]");
+      if (opener) { (document.getElementById(opener.dataset.open!) as HTMLDialogElement)?.showModal(); return; }
+      const dlg = el.closest("dialog");
+      if (dlg && (el === dlg || el.closest("[data-close],[data-close-go]"))) dlg.close();
+    });
+  </script>
+</Base>
