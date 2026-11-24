@@ -1,0 +1,142 @@
+---
+import Base from "../../layouts/Base.astro";
+import WorksHeader from "../../components/WorksHeader.astro";
+import Img from "../../components/Img.astro";
+import T from "../../components/T.astro";
+import Tile from "../../components/Tile.astro";
+import { site, jobs, featured, photo, url, curtainLabel, JOB_TYPES, CURTAIN_TYPES } from "../../lib/data";
+
+const P = site.portfolio;
+const provinces = new Set(jobs.map((j) => j.province)).size;
+const count = (key: "jobTypes" | "curtainTypes", v: string) => jobs.filter((j) => j[key].includes(v)).length;
+const lineHref = site.contact.lineUrl || url("/#contact");
+---
+<Base title="ผลงาน">
+  <WorksHeader />
+  <main>
+    <section class="scene w-hero">
+      <Img class="bg" src={photo(P.heroPhoto)} alt="" loading="eager" />
+      <div class="wrap inner">
+        <span class="eyebrow">{site.business.short} · ผลงานคัดสรร</span>
+        <h1>{P.heroTitle}</h1>
+        <T as="p" s={P.heroLead} />
+      </div>
+      <a class="scroll" href="#intro">SCROLL ↓</a>
+    </section>
+
+    <section class="w-intro" id="intro">
+      <div class="wrap">
+        <span class="eyebrow">เกี่ยวกับผลงานของเรา</span>
+        <T as="h2" s={P.introQuote} />
+        <T as="p" s={P.introText} />
+        <div class="w-nums">
+          <div><b>{jobs.length}</b><span>ผลงานในหน้านี้</span></div>
+          <div><b>{provinces}</b><span>จังหวัด</span></div>
+          <div><b>{jobs.filter((j) => j.level === "High-End").length}</b><span>งาน High-End</span></div>
+        </div>
+      </div>
+    </section>
+
+    {featured.map((j, i) => (
+      <section class:list={["story", { flip: i % 2 }]} id={`featured-${j.id}`}>
+        <div class="wrap grid">
+          <a class="im" href={url(`/portfolio/${j.id}/`)} tabindex="-1"><Img src={j.coverImg} alt={j.title} sizes="(max-width: 860px) 100vw, 800px" /></a>
+          <div class="card">
+            <span class="num">ผลงานเด่น {String(i + 1).padStart(2, "0")}</span>
+            <h2>{j.title}</h2>
+            {j.summary ? <p>{j.summary}</p> : <T as="p" s="[เล่าสั้นๆ 1-2 บรรทัด: โจทย์ของลูกค้า และสิ่งที่เราทำ]" />}
+            <dl class="facts">
+              <dt>วันที่</dt><dd>{j.dateText}</dd>
+              <dt>สถานที่</dt><dd>{j.housing} · {j.province}</dd>
+              <dt>งาน</dt><dd>{j.jobTypes.join(", ")}</dd>
+              {j.curtainTypes.length > 0 && <><dt>ชนิดม่าน</dt><dd>{j.curtainTypes.map(curtainLabel).join(", ")}</dd></>}
+              {j.blackout && <><dt>กันแสง</dt><dd>{j.blackout}</dd></>}
+            </dl>
+            <div class="thumbs">
+              {j.photos.filter((p) => p !== j.coverImg).slice(0, 3).map((p) => <div><Img src={p} alt="" sizes="160px" widths={[320]} /></div>)}
+            </div>
+            <div class="actions">
+              <a class="btn dark" href={url(`/portfolio/${j.id}/`)}>ดูผลงานนี้ ({j.photos.length} ภาพ)</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="collection" id="collection">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">คอลเลกชัน</span>
+          <h2>ผลงานทั้งหมด</h2>
+        </div>
+        <div class="filters">
+          <div class="fgroup" role="group" aria-label="ประเภทงาน">
+            <span class="lbl">ประเภทงาน</span>
+            <button class="chip" type="button" data-f="type" data-v="" aria-pressed="true">ทั้งหมด <small>{jobs.length}</small></button>
+            {JOB_TYPES.map((t) => <button class="chip" type="button" data-f="type" data-v={t} aria-pressed="false">{t} <small>{count("jobTypes", t)}</small></button>)}
+          </div>
+          <div class="fgroup" role="group" aria-label="ชนิดม่าน">
+            <span class="lbl">ชนิดม่าน</span>
+            <button class="chip" type="button" data-f="curtain" data-v="" aria-pressed="true">ทั้งหมด</button>
+            {CURTAIN_TYPES.map((t) => <button class="chip" type="button" data-f="curtain" data-v={t} aria-pressed="false">{curtainLabel(t)} <small>{count("curtainTypes", t)}</small></button>)}
+          </div>
+        </div>
+        <p class="result" id="result" aria-live="polite">แสดง {jobs.length} ผลงาน</p>
+        <div class="mosaic" id="mosaic">
+          {jobs.map((j) => <Tile job={j} />)}
+        </div>
+        <div class="empty" id="empty" hidden>
+          <p>ยังไม่มีผลงานหมวดนี้บนเว็บ แต่เรารับทำ สอบถามได้เลย</p>
+          <a class="btn dark" href={lineHref}>สอบถามทาง LINE</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene w-cta">
+      <Img class="bg" src={photo(P.ctaPhoto)} alt="" />
+      <div class="wrap inner">
+        <span class="eyebrow">ขั้นต่อไป</span>
+        <h2>{P.ctaTitle}</h2>
+        <div class="row">
+          <a class="btn light" href={lineHref}>ปรึกษาฟรีทาง LINE</a>
+          <a class="btn" href={url("/")}>← กลับหน้าหลัก</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const state: Record<string, string> = { type: "", curtain: "" };
+    const tiles = [...document.querySelectorAll<HTMLElement>("#mosaic .tile")];
+    function apply(push = true) {
+      let n = 0;
+      for (const t of tiles) {
+        const ok = (!state.type || t.dataset.job!.split("|").includes(state.type)) && (!state.curtain || t.dataset.curtain!.split("|").includes(state.curtain));
+        t.hidden = !ok;
+        if (ok) n++;
+      }
+      document.querySelectorAll<HTMLElement>("[data-f]").forEach((c) => c.setAttribute("aria-pressed", String(state[c.dataset.f!] === c.dataset.v)));
+      document.getElementById("result")!.textContent = `แสดง ${n} ผลงาน`;
+      document.getElementById("empty")!.hidden = n > 0;
+      if (push) {
+        const q = new URLSearchParams();
+        if (state.type) q.set("type", state.type);
+        if (state.curtain) q.set("curtain", state.curtain);
+        history.replaceState(null, "", (q.toString() ? "?" + q : location.pathname) + "#collection");
+      }
+    }
+    document.addEventListener("click", (e) => {
+      const c = (e.target as Element).closest<HTMLElement>("[data-f]");
+      if (!c) return;
+      state[c.dataset.f!] = c.dataset.v!;
+      apply();
+    });
+    const q = new URLSearchParams(location.search);
+    if (q.get("type") || q.get("curtain")) {
+      state.type = q.get("type") ?? "";
+      state.curtain = q.get("curtain") ?? "";
+      apply(false);
+      document.getElementById("collection")!.scrollIntoView();
+    }
+  </script>
+</Base>

@@ -1,0 +1,22 @@
+---
+import Icon from "./Icon.astro";
+import T from "./T.astro";
+import { site, isTodo } from "../lib/data";
+const c = site.contact;
+const items = [
+  { icon: "phone", label: "โทร", value: c.phone, href: isTodo(c.phone) ? "" : `tel:${c.phone.replace(/[^\d+]/g, "")}` },
+  { icon: "line", label: "LINE", value: c.line, href: c.lineUrl },
+  { icon: "facebook", label: "Facebook", value: c.facebook, href: c.facebookUrl },
+];
+---
+<div class="contact-row">
+  {items.map((i) => {
+    const Tag = i.href ? "a" : "div";
+    return (
+      <Tag class="contact-item" href={i.href || undefined} target={i.href && !i.href.startsWith("tel:") ? "_blank" : undefined} rel="noopener">
+        <Icon name={i.icon} />
+        <span><small>{i.label}</small><T s={i.value} /></span>
+      </Tag>
+    );
+  })}
+</div>

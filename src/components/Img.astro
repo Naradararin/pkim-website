@@ -1,0 +1,8 @@
+---
+import { Image } from "astro:assets";
+// Responsive WebP image. Pass `widths` to limit the sizes generated.
+const { src, alt = "", sizes = "100vw", class: cls, loading = "lazy", widths } = Astro.props;
+const w = widths ?? [640, 1280, 1920].filter((x) => x <= src.width);
+if (!w.length) w.push(src.width);
+---
+<Image src={src} alt={alt} format="webp" quality={78} widths={w.filter((x: number) => x <= src.width).length ? w.filter((x: number) => x <= src.width) : [src.width]} sizes={sizes} class={cls} loading={loading} decoding="async" />

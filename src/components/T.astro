@@ -1,0 +1,8 @@
+---
+// Renders text; marks placeholders ([...]) so they are easy to spot.
+import { isTodo, site } from "../lib/data";
+const { s, as: Tag = "span" } = Astro.props;
+const todo = isTodo(s) && site.showPlaceholderMarks;
+const text = isTodo(s) ? String(s).trim().replace(/^\[|\]$/g, "") : s;
+---
+<Tag class:list={[Astro.props.class, { todo }]} title={todo ? "รอข้อมูลจริง" : undefined}>{text}</Tag>

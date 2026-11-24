@@ -1,0 +1,400 @@
+{
+  "_readme": "ข้อมูลผลงานทั้งหมด 1 รายการ = 1 งาน. id = ชื่อในลิงก์ (a-z, 0-9, -), folder = ชื่อโฟลเดอร์รูปต้นฉบับ, place = ชื่อสถานที่ (null = แสดงเป็น 'ประเภทบ้าน จังหวัด'), cover = รูปปกลำดับที่ (1 = 01.jpg), featured = 1-3 คือ 3 งานเด่นบนหน้าแรก (null = ไม่ใช่), summary/story = ข้อความเล่าเรื่อง (null = ยังไม่มี)",
+  "jobTypeOptions": [
+    "ผ้าม่าน",
+    "วอลเปเปอร์",
+    "มู่ลี่ไม้",
+    "ฉากกั้นห้อง/แอร์",
+    "ม่านม้วน"
+  ],
+  "curtainTypeOptions": [
+    "ลอน",
+    "จีบ",
+    "ตาไก่",
+    "พับ",
+    "มู่ลี่"
+  ],
+  "jobs": [
+    {
+      "id": "minburi-private-residence",
+      "folder": "Minburi Private Residence 11-10-26",
+      "place": "Minburi Private Residence",
+      "date": "2026-10-11",
+      "province": "กรุงเทพ",
+      "housing": "บ้านเดี่ยว",
+      "level": "High-End",
+      "jobTypes": [
+        "ผ้าม่าน",
+        "วอลเปเปอร์"
+      ],
+      "curtainTypes": [
+        "ลอน",
+        "จีบ",
+        "มู่ลี่"
+      ],
+      "blackout": "Blackout 100%",
+      "cover": 2,
+      "facebook": "https://www.facebook.com/share/p/1CAZRSWWts/",
+      "featured": 1,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "navara-rangsit-klong-2",
+      "folder": "NAVARA Rangsit #U2013 Klong 2 12-07-26",
+      "place": "NAVARA Rangsit – Klong 2",
+      "date": "2026-07-12",
+      "province": "กรุงเทพ",
+      "housing": "บ้านเดี่ยว",
+      "level": "High-End",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน",
+        "มู่ลี่"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 5,
+      "facebook": "https://www.facebook.com/share/p/1DzjNkTYvQ/",
+      "featured": 2,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "d-condo-vivid",
+      "folder": "D Condo Vivid 30-07-26",
+      "place": "D Condo Vivid",
+      "date": "2026-07-30",
+      "province": "กรุงเทพ",
+      "housing": "คอนโด",
+      "level": "High-End",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 2,
+      "facebook": "https://www.facebook.com/share/p/19ZmiR97T4/",
+      "featured": 3,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "factory-bangkok-2026-11",
+      "folder": "IDK2 23-11-26",
+      "place": null,
+      "date": "2026-11-23",
+      "province": "กรุงเทพ",
+      "housing": "โรงงาน",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "วอลเปเปอร์"
+      ],
+      "curtainTypes": [],
+      "blackout": null,
+      "cover": 2,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "house-bangkok-2026-09",
+      "folder": "IDK1 14-09-26",
+      "place": null,
+      "date": "2026-09-14",
+      "province": "กรุงเทพ",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 3,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "samkhok",
+      "folder": "Samkhok 20-12-25",
+      "place": "Samkhok",
+      "date": "2025-12-20",
+      "province": "ปทุมธานี",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน",
+        "มู่ลี่"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 6,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "baan-klang-mueng-ramintra-83",
+      "folder": "Baan Klang Mueng Ramintra 83 Station 30-08-24",
+      "place": "Baan Klang Mueng Ramintra 83 Station",
+      "date": "2024-08-30",
+      "province": "กรุงเทพ",
+      "housing": "ทาวน์โฮม",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 1,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "townhome-bangkok-2023-11",
+      "folder": "IDK4 29-11-23",
+      "place": null,
+      "date": "2023-11-29",
+      "province": "กรุงเทพ",
+      "housing": "ทาวน์โฮม",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ตาไก่"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 2,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "baan-pool-sri",
+      "folder": "Baan Pool Sri 18-10-23",
+      "place": "Baan Pool Sri",
+      "date": "2023-10-18",
+      "province": "ปทุมธานี",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน",
+        "วอลเปเปอร์"
+      ],
+      "curtainTypes": [
+        "ตาไก่"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 1,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "ban-dong-ma-fai",
+      "folder": "Ban Dong Ma Fai 27-07-23",
+      "place": "Ban Dong Ma Fai",
+      "date": "2023-07-27",
+      "province": "ยโสธร",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 1,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "wat-siri-sawang",
+      "folder": "Wat Siri Sawang 15-07-23",
+      "place": "Wat Siri Sawang",
+      "date": "2023-07-15",
+      "province": "ศรีสะเกษ",
+      "housing": "วัด",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 1,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "house-bangkok-2022-12",
+      "folder": "IDK5 24-12-22",
+      "place": null,
+      "date": "2022-12-24",
+      "province": "กรุงเทพ",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "มู่ลี่ไม้"
+      ],
+      "curtainTypes": [],
+      "blackout": null,
+      "cover": 1,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "a-little-house-in-phu-kwang",
+      "folder": "A Little House in Phu Kwang 05-12-22",
+      "place": "A Little House in Phu Kwang",
+      "date": "2022-12-05",
+      "province": "พิษณุโลก",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 5,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "indy-rangsit-klong-2",
+      "folder": "Indy Rangsit Klong 2 11-07-22",
+      "place": "Indy Rangsit Klong 2",
+      "date": "2022-07-11",
+      "province": "กรุงเทพ",
+      "housing": "ทาวน์โฮม",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "จีบ",
+        "พับ"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 1,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "house-bangkok-2020-08",
+      "folder": "IDK6 28-08-20",
+      "place": null,
+      "date": "2020-08-28",
+      "province": "กรุงเทพ",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ฉากกั้นห้อง/แอร์"
+      ],
+      "curtainTypes": [],
+      "blackout": null,
+      "cover": 2,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "house-bangkok-2019-06",
+      "folder": "IDK7 14-06-19",
+      "place": null,
+      "date": "2019-06-14",
+      "province": "กรุงเทพ",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ลอน",
+        "พับ"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 5,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "townhome-bangkok-2019-03",
+      "folder": "IDK8 31-03-19",
+      "place": null,
+      "date": "2019-03-31",
+      "province": "กรุงเทพ",
+      "housing": "ทาวน์โฮม",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ตาไก่",
+        "พับ"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 3,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    },
+    {
+      "id": "house-phitsanulok-2019-02",
+      "folder": "IDK9 26-02-19",
+      "place": null,
+      "date": "2019-02-26",
+      "province": "พิษณุโลก",
+      "housing": "บ้านเดี่ยว",
+      "level": "ทั่วไป",
+      "jobTypes": [
+        "ผ้าม่าน"
+      ],
+      "curtainTypes": [
+        "ตาไก่"
+      ],
+      "blackout": "Dimout 80-90%",
+      "cover": 3,
+      "facebook": null,
+      "featured": null,
+      "summary": null,
+      "story": null
+    }
+  ]
+}

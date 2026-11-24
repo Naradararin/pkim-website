@@ -1,0 +1,231 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import T from "../components/T.astro";
+import Icon from "../components/Icon.astro";
+import Contacts from "../components/Contacts.astro";
+import { site, featured, jobs, photo, url, isTodo } from "../lib/data";
+
+const nav = [
+  ["#about", "เกี่ยวกับเรา"],
+  ["#products", "สินค้า"],
+  ["#why", "ทำไมต้องเรา"],
+  ["#portfolio", "ผลงาน"],
+  ["#contact", "ติดต่อ"],
+];
+const c = site.contact;
+const lineHref = c.lineUrl || "#contact";
+const heroJob = jobs.find((j) => j.id === site.hero.photo.job);
+---
+<Base description={isTodo(site.hero.lead) ? "" : site.hero.lead}>
+  <header class="hdr" data-hdr>
+    <div class="wrap bar">
+      <a class="logo" href="#top">{site.business.short}</a>
+      <nav class="top" aria-label="เมนูหลัก">
+        {nav.map(([h, l]) => <a href={h}>{l}</a>)}
+      </nav>
+      <a class="btn" href={lineHref}><Icon name="line" /><span class="lbl">ปรึกษาฟรีทาง LINE</span></a>
+      <button class="menu-btn" type="button" data-menu aria-label="เปิดเมนู" aria-expanded="false" aria-controls="drawer"><Icon name="menu" /></button>
+    </div>
+  </header>
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" hidden aria-label="เมนู">
+    <button class="x" type="button" data-close aria-label="ปิดเมนู"><Icon name="close" /></button>
+    {nav.map(([h, l]) => <a href={h}>{l}</a>)}
+    <a href={url("/portfolio/")}>ผลงานทั้งหมด</a>
+  </aside>
+
+  <main>
+    <!-- 1 HERO -->
+    <section class="scene hero" id="top">
+      <Img class="bg" src={photo(site.hero.photo)} alt="" loading="eager" />
+      <div class="wrap inner">
+        <T class="eyebrow" s={site.business.area} />
+        <T as="h1" s={site.hero.title} />
+        <T as="p" class="lead" s={site.hero.lead} />
+        <div class="row">
+          <a class="btn light" href="#portfolio">ดูผลงาน</a>
+          <a class="btn" href="#products">ดูสินค้า</a>
+        </div>
+        <div class="foot">
+          {heroJob && <a href={url(`/portfolio/${heroJob.id}/`)}>ภาพ: {heroJob.title}</a>}
+          <a href="#about">เลื่อนลง ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 ABOUT -->
+    <section class="scene about" id="about">
+      <Img class="bg" src={photo(site.about.photo)} alt="" />
+      <div class="wrap inner">
+        <div class="text">
+          <span class="eyebrow">เกี่ยวกับเรา</span>
+          <T as="h2" s={site.about.title} />
+          <T as="p" s={site.about.text} />
+          <span class="sign">{site.about.sign}</span>
+          <div class="stats">
+            {site.about.stats.map((s) => <div><T as="b" s={s.value} /><span>{s.label}</span></div>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 PRODUCTS -->
+    <section class="sec products" id="products">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">สินค้าของเรา</span>
+          <h2>{site.products.title}</h2>
+          <p>{site.products.lead}</p>
+        </div>
+        <div class="pgrid">
+          {site.products.items.map((p, i) => (
+            <button class="pitem" type="button" data-open={`dlg-${p.id}`}>
+              <div class="ph"><Img src={photo(p.photos[0])} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></div>
+              <span class="num">สินค้าหลัก {String(i + 1).padStart(2, "0")}</span>
+              <T as="h3" s={p.name} />
+              <T class="sub" s={p.sub} />
+              <span class="more">ดูรายละเอียด</span>
+            </button>
+          ))}
+        </div>
+      </div>
+      {site.products.items.map((p) => {
+        const used = jobs.filter((j) => j.jobTypes.includes(p.jobType)).slice(0, 3);
+        return (
+          <dialog class="modal" id={`dlg-${p.id}`} aria-label={p.name}>
+            <div class="modal-in">
+              <div class="gallery">
+                <div class="big"><Img src={photo(p.photos[0])} alt="" sizes="(max-width: 720px) 100vw, 560px" /></div>
+                <div class="thumbs">
+                  {p.photos.slice(1, 4).map((ref) => <div><Img src={photo(ref)} alt="" sizes="190px" widths={[400]} /></div>)}
+                </div>
+              </div>
+              <div class="info">
+                <button class="x" type="button" data-close aria-label="ปิด"><Icon name="close" /></button>
+                <span class="eyebrow">สินค้าหลัก</span>
+                <T as="h2" s={p.name} />
+                <T as="p" s={p.description} />
+                <dl>{p.specs.map(([k, v]) => <><dt>{k}</dt><dd><T s={v} /></dd></>)}</dl>
+                {used.length > 0 && (
+                  <div style="display:grid;gap:8px">
+                    <span class="eyebrow">ผลงานที่ใช้สินค้านี้</span>
+                    <div class="mini">
+                      {used.map((j) => (
+                        <a href={url(`/portfolio/${j.id}/`)}><div class="im"><Img src={j.coverImg} alt="" sizes="120px" widths={[300]} /></div>{j.title}</a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <div class="actions">
+                  <a class="btn dark" href={lineHref} data-close-go>สอบถามสินค้านี้ทาง LINE</a>
+                  <a class="btn" href={url(`/portfolio/?type=${encodeURIComponent(p.jobType)}`)}>ดูผลงานทั้งหมด</a>
+                </div>
+              </div>
+            </div>
+          </dialog>
+        );
+      })}
+    </section>
+
+    <!-- 4 WHY US -->
+    <section class="sec why" id="why">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">ทำไมต้องเลือกเรา</span>
+          <h2>{site.why.title}</h2>
+          <T as="p" s={site.why.lead} />
+        </div>
+        <div class="why-grid">
+          <div class="why-photo">
+            <Img src={photo(site.why.photo)} alt="ช่างกำลังติดตั้งผ้าม่านที่หน้างาน" sizes="(max-width: 900px) 100vw, 600px" />
+            {site.why.points.map((p, i) => (
+              <a class="pin" href={`#pt-${i + 1}`} style={`left:${p.x}%;top:${p.y}%`} aria-label={`จุดที่ ${i + 1}`}>{i + 1}</a>
+            ))}
+          </div>
+          <div class="points">
+            {site.why.points.map((p, i) => (
+              <article class="point" id={`pt-${i + 1}`}>
+                <div class="im"><Img src={photo(p.photo)} alt="" sizes="(max-width: 520px) 100vw, 120px" widths={[300, 640]} /></div>
+                <div>
+                  <h3><span class="n">{i + 1}</span><T s={p.title} /></h3>
+                  <div class="cmp">
+                    <div class="other"><small>ร้านทั่วไป</small><T s={p.other} /></div>
+                    <div class="ours"><small>ของเรา</small><T s={p.ours} /></div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 PORTFOLIO BAND -->
+    <section class="sec pband" id="portfolio">
+      <div class="wrap">
+        <div class="top">
+          <div class="sec-head">
+            <span class="eyebrow">ผลงาน</span>
+            <h2>{site.portfolioBand.title}</h2>
+            <p>{site.portfolioBand.lead}</p>
+          </div>
+          <a class="btn light" href={url("/portfolio/")}>อ่านเพิ่มเติม · ดูผลงานทั้งหมด →</a>
+        </div>
+        <div class="best">
+          {featured.map((j, i) => (
+            <a class="bcard" href={url(`/portfolio/${j.id}/`)}>
+              <div class="im"><Img src={j.coverImg} alt={j.title} sizes="(max-width: 860px) 100vw, 33vw" /><span class="rank">{i + 1}</span></div>
+              <span class="lv">{j.level} · {j.housing}</span>
+              <h3>{j.title}</h3>
+              <div class="m"><span>{j.dateText}</span><span>{j.province}</span><span>{j.jobTypes.join(" · ")}</span></div>
+              <span class="more">อ่านเพิ่มเติม</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 REVIEWS -->
+    <section class="plain" id="reviews">
+      <div class="wrap">
+        <h2>เสียงจากลูกค้า</h2>
+        <div class="reviews">
+          {site.reviews.map((r) => <blockquote><T as="p" s={r.text} /><T as="cite" s={r.who} /></blockquote>)}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 ADDRESS + CONTACT -->
+    <section class="plain" id="contact">
+      <div class="wrap">
+        <h2>ติดต่อเรา</h2>
+        <div class="contact-grid">
+          <Contacts />
+          <div class="addr">
+            {c.mapEmbedUrl ? <iframe src={c.mapEmbedUrl} title="แผนที่ร้าน" loading="lazy" referrerpolicy="no-referrer-when-downgrade" /> : <div class="map"><T s="[แผนที่ Google Maps]" /></div>}
+            <T s={c.address} />
+            <T s={c.hours} />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft"><div class="wrap"><span>© {new Date().getFullYear()} <T s={site.business.name} /></span><span><T s={c.phone} /></span></div></footer>
+  <div class="fab">
+    <a href={lineHref} aria-label="LINE"><Icon name="line" /></a>
+    <a href={isTodo(c.phone) ? "#contact" : `tel:${c.phone.replace(/[^\d+]/g, "")}`} aria-label="โทร"><Icon name="phone" /></a>
+  </div>
+
+  <script>
+    // Product popups
+    document.addEventListener("click", (e) => {
+      const t = e.target as Element;
+      const opener = t.closest<HTMLElement>("[data-open]");
+      if (opener) { (document.getElementById(opener.dataset.open!) as HTMLDialogElement)?.showModal(); return; }
+      const dlg = t.closest("dialog");
+      if (dlg && (t === dlg || t.closest("[data-close],[data-close-go]"))) dlg.close();
+    });
+  </script>
+</Base>
