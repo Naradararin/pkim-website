@@ -1,3 +1,10 @@
+/* ===== FONTS — change fonts here only =====
+   Self-hosted files live in src/assets/fonts/. Google fonts are linked in src/layouts/Base.astro. */
+@font-face {
+  font-family: "SOV_wong";
+  src: url("../assets/fonts/SOV_wong.woff2") format("woff2");
+  font-display: swap;
+}
 /* ------------------------------------------------------------------
    Design tokens. Change colours and fonts here only.
    Palette B "ขาวอุ่น วอลนัท": warm white, soft gold from the logo,
@@ -20,7 +27,7 @@
 
   /* Fonts: each language picks its own logo / heading / body face.
      Small labels keep IBM Plex Sans Thai in both languages. */
-  --font-logo: "Trirong", Georgia, serif;
+  --font-logo: "SOV_wong", "Trirong", Georgia, serif;
   --display: "Trirong", Georgia, serif;
   --body: "Sarabun", system-ui, sans-serif;
   --small: "IBM Plex Sans Thai", system-ui, sans-serif;
@@ -33,7 +40,6 @@
   --gutter: max(20px, env(safe-area-inset-left, 0px));
 }
 :root:lang(en) {
-  --font-logo: "Cinzel", Georgia, serif;
   --display: "Playfair Display", Georgia, serif;
   --body: "Manrope", system-ui, sans-serif;
   --display-weight: 400;
