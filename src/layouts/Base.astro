@@ -29,7 +29,7 @@ const otherHref = url(alt, other);
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Trirong:wght@300;400;500&family=Sarabun:wght@300;400;500&family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" />
   </head>
   <body>
     <slot />
@@ -41,6 +41,20 @@ const otherHref = url(alt, other);
         try { localStorage.setItem("lang", a.dataset.langTo!); } catch (_) {}
         a.href = a.href.split(/[?#]/)[0] + location.search + location.hash;
       });
+      // Fade sections in as they scroll into view.
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+        const sel = ".sec-head, .pband .top > .btn, .pitem, .why-photo, .point, .bcard, .story .im, .story .card, .w-intro .wrap > *, .filters, .tile, .reviews blockquote, .contact-grid > *, .plain h2, .cs-side, .cs-text, .cs-photos > *, .cs-nav, .related h2, .w-cta .inner";
+        const els = [...document.querySelectorAll<HTMLElement>(sel)];
+        const io = new IntersectionObserver((entries) => {
+          for (const en of entries) if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+        for (const el of els) {
+          const sibs = el.parentElement ? [...el.parentElement.children].filter((c) => c.matches(sel)) : [];
+          el.style.setProperty("--d", `${Math.min(sibs.indexOf(el), 5) * 0.09}s`);
+          el.classList.add("reveal");
+          io.observe(el);
+        }
+      }
       // Header turns solid once the full-screen photo has scrolled past.
       const hdr = document.querySelector<HTMLElement>("[data-hdr]");
       if (hdr) {
