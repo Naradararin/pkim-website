@@ -1,21 +1,21 @@
 /* ------------------------------------------------------------------
    Design tokens. Change colours and fonts here only.
-   Palette "ครีมทอง": cream from the Golden Lux logo, warm gold accent,
-   chocolate-brown dark sections.
+   Palette B "ขาวอุ่น วอลนัท": warm white, soft gold from the logo,
+   walnut-brown dark sections.
 ------------------------------------------------------------------- */
 :root {
-  --bg: #F6F1E7;          /* page background (cream) */
-  --surface: #FFFDF8;     /* cards, light sections */
-  --fg: #2A241E;          /* main text */
-  --muted: #75695B;       /* secondary text */
-  --line: #E4DACB;        /* borders */
-  --ink: #2A241E;         /* dark buttons */
-  --accent: #A67C35;      /* gold: pins, highlights, primary buttons */
+  --bg: #F8F7F4;          /* page background (warm white) */
+  --surface: #FFFFFF;     /* cards, light sections */
+  --fg: #1F1D1A;          /* main text */
+  --muted: #6E675F;       /* secondary text */
+  --line: #E6E1D9;        /* borders */
+  --ink: #1F1D1A;         /* dark buttons */
+  --accent: #9A7B4F;      /* gold: pins, highlights, primary buttons */
   --accent-ink: #FFFFFF;  /* text on gold */
-  --accent-text: #8A6428; /* gold dark enough for small text on cream */
-  --dark: #2B241D;        /* dark sections */
-  --on-dark: #F7F1E6;     /* text on photos / dark sections */
-  --on-dark-muted: #D9CFBF;
+  --accent-text: #7D6038; /* gold dark enough for small text on cream */
+  --dark: #3A3129;        /* dark sections */
+  --on-dark: #F5F1EA;     /* text on photos / dark sections */
+  --on-dark-muted: #D8CEBF;
   --todo: #b45309;        /* placeholder marks (only while content is missing) */
 
   /* Fonts: each language picks its own logo / heading / body face.
@@ -34,9 +34,9 @@
 }
 :root:lang(en) {
   --font-logo: "Cinzel", Georgia, serif;
-  --display: "Cormorant Garamond", Georgia, serif;
-  --body: "Jost", system-ui, sans-serif;
-  --display-weight: 500;
+  --display: "Playfair Display", Georgia, serif;
+  --body: "Manrope", system-ui, sans-serif;
+  --display-weight: 400;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
