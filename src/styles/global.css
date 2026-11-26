@@ -28,10 +28,11 @@
   /* Fonts: each language picks its own logo / heading / body face.
      Small labels keep IBM Plex Sans Thai in both languages. */
   --font-logo: "SOV_wong", "Trirong", Georgia, serif;
-  --display: "Trirong", Georgia, serif;
+  --display: "Noto Sans Thai", "Trirong", Georgia, serif;  /* temp lookalike of Tannakone Thin; swap when licensed */
+  --display-stretch: 62.5%;
   --body: "Sarabun", system-ui, sans-serif;
   --small: "IBM Plex Sans Thai", system-ui, sans-serif;
-  --display-weight: 300;
+  --display-weight: 100;
 
   --radius: 18px;         /* soft corners on photos that are not full-screen */
   --radius-sm: 12px;
@@ -43,6 +44,7 @@
   --display: "Playfair Display", Georgia, serif;
   --body: "Manrope", system-ui, sans-serif;
   --display-weight: 400;
+  --display-stretch: 100%;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -441,3 +443,5 @@ dialog.modal[open]::backdrop { animation: fade .4s var(--ease); }
   .reveal { opacity: 1; transform: none; }
   @view-transition { navigation: none; }
 }
+
+h1, h2, h3, .w-nums b, .stats b { font-stretch: var(--display-stretch, 100%); }
