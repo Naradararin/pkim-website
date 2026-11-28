@@ -35,7 +35,7 @@ const chapters: ImageMetadata[][] = [];
 for (let i = 0; i < rest.length; i += 3) chapters.push(rest.slice(i, i + 3));
 ---
 <Base lang={lang} alt={alt} title={v.title} description={`${v.title} · ${v.jobTypes.join(", ")} · ${v.province}`}>
-  <WorksHeader lang={lang} alt={alt} />
+  <WorksHeader lang={lang} alt={alt} job />
   <main>
     <section class="scene cs-hero">
       <Img class="bg" src={j.coverImg} alt={v.title} loading="eager" />

@@ -3,11 +3,11 @@ import Icon from "./Icon.astro";
 import Logo from "./Logo.astro";
 import LangSwitch from "./LangSwitch.astro";
 import { t, url, lineHref, type Lang } from "../lib/data";
-const { lang, alt } = Astro.props as { lang: Lang; alt: string };
+const { lang, alt, job = false } = Astro.props as { lang: Lang; alt: string; job?: boolean };
 ---
 <header class="w-hdr" data-hdr>
   <div class="wrap w-bar">
-    <a class="back" href={url("/", lang)}><Icon name="back" /><span class="lbl">{t(lang, "nav.backHome")}</span></a>
+    <a class="back" data-back href={job ? url("/portfolio/#collection", lang) : url("/", lang)}><Icon name="back" /><span class="lbl">{job ? t(lang, "nav.allWorks") : t(lang, "nav.backHome")}</span></a>
     <a class="brand" href={url("/portfolio/", lang)}><Logo lang={lang} size={40} /><small>PORTFOLIO</small></a>
     <div class="right">
       <a class="hide-s" href={url("/portfolio/#collection", lang)}>{t(lang, "nav.allWorks")}</a>
