@@ -108,6 +108,7 @@ const lead = L(site.hero.lead, lang);
             </button>
           ))}
         </div>
+        <div class="swipe-hint" data-for=".pgrid">{site.products.items.map(() => <i />)}</div>
       </div>
       {site.products.items.map((p) => {
         const used = jobs.filter((j) => j.jobTypes.includes(p.jobType)).slice(0, 3);
@@ -205,6 +206,7 @@ const lead = L(site.hero.lead, lang);
             );
           })}
         </div>
+        <div class="swipe-hint" data-for=".pband .best">{featured.map(() => <i />)}</div>
       </div>
     </section>
 
@@ -251,6 +253,12 @@ const lead = L(site.hero.lead, lang);
     });
   </script>
   <script>
+    for (const h of document.querySelectorAll<HTMLElement>(".swipe-hint")) {
+      const row = document.querySelector<HTMLElement>(h.dataset.for!); if (!row) continue;
+      const dots = [...h.children];
+      const upd = () => { const kids = [...row.children] as HTMLElement[]; let best = 0, d = 1e9; kids.forEach((k, i) => { const x = Math.abs(k.offsetLeft - row.scrollLeft - 20); if (x < d) { d = x; best = i; } }); dots.forEach((e, i) => e.classList.toggle("on", i === best)); };
+      row.addEventListener("scroll", () => requestAnimationFrame(upd), { passive: true }); upd();
+    }
     const els = [...document.querySelectorAll<HTMLElement>("[data-speed]")];
     if (els.length && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
       const tick = () => { for (const e of els) { const r = e.getBoundingClientRect(); const c = r.top + r.height / 2 - innerHeight / 2; e.style.translate = `0 ${(-c * Number(e.dataset.speed)).toFixed(1)}px`; } };
