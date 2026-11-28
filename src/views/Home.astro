@@ -18,7 +18,6 @@ const nav = [
 ];
 const c = site.contact;
 const line = lineHref(lang);
-const stripJobs = jobs.filter((j) => j.coverImg).slice(0, 10);
 const heroJob = jobs.find((j) => j.id === site.hero.photo.job);
 const lead = L(site.hero.lead, lang);
 ---
@@ -61,14 +60,6 @@ const lead = L(site.hero.lead, lang);
     </section>
 
 
-    <!-- FILM STRIP -->
-    <section class="strip" aria-hidden="true">
-      <div class="track">
-        {[...stripJobs, ...stripJobs].map((j) => (
-          <a href={url(`/portfolio/${j.id}/`, lang)} tabindex="-1"><Img src={j.coverImg} alt="" sizes="420px" widths={[640]} /><span>{view(j, lang).title}</span></a>
-        ))}
-      </div>
-    </section>
 
     <!-- 2 ABOUT -->
     <section class="scene about" id="about">
