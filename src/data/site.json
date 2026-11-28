@@ -121,16 +121,6 @@
               "th": "สั่งตัดตามหน้างาน",
               "en": "Made to measure"
             }
-          ],
-          [
-            {
-              "th": "ราคาเริ่มต้น",
-              "en": "From"
-            },
-            {
-              "th": "[ราคาจริง หรือ สอบถามราคา]",
-              "en": "[Real price, or Ask for a quote]"
-            }
           ]
         ],
         "jobType": "ผ้าม่าน",
@@ -174,8 +164,8 @@
               "en": "Material"
             },
             {
-              "th": "[ชนิดวอลเปเปอร์ที่ร้านมี]",
-              "en": "[Types the shop carries]"
+              "th": "ไวนิล (PVC) เช็ดล้างได้ · Non-woven ระบายอากาศดี · แบบผิวผ้า",
+              "en": "Vinyl (PVC), wipeable · Breathable non-woven · Fabric-textured"
             }
           ],
           [
@@ -186,16 +176,6 @@
             {
               "th": "มีแค็ตตาล็อกให้เลือก",
               "en": "Catalogue to choose from"
-            }
-          ],
-          [
-            {
-              "th": "ราคาเริ่มต้น",
-              "en": "From"
-            },
-            {
-              "th": "[ราคาจริง หรือ สอบถามราคา]",
-              "en": "[Real price, or Ask for a quote]"
             }
           ]
         ],
@@ -240,8 +220,8 @@
               "en": "Material"
             },
             {
-              "th": "[ไม้จริง / ไม้เทียม]",
-              "en": "[Real wood / faux wood]"
+              "th": "ไม้จริง ลายไม้ธรรมชาติ · ไม้เทียม ทนชื้น เหมาะห้องน้ำและครัว",
+              "en": "Real wood, natural grain · Faux wood, moisture-resistant for kitchens and baths"
             }
           ],
           [
@@ -250,18 +230,8 @@
               "en": "Finishes"
             },
             {
-              "th": "[จำนวนสีที่มี]",
-              "en": "[Number of finishes]"
-            }
-          ],
-          [
-            {
-              "th": "ราคาเริ่มต้น",
-              "en": "From"
-            },
-            {
-              "th": "[ราคาจริง หรือ สอบถามราคา]",
-              "en": "[Real price, or Ask for a quote]"
+              "th": "โทนไม้ธรรมชาติ ขาว และสีเข้ม",
+              "en": "Natural wood tones, white and dark finishes"
             }
           ]
         ],
