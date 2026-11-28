@@ -7,7 +7,7 @@ const c = site.contact;
 const items = [
   ...c.phones.map((p) => ({ icon: "phone", label: t(lang, "contact.phone"), value: p, href: telHref(p) })),
   { icon: "line", label: "LINE", value: c.line, href: c.lineUrl },
-  { icon: "facebook", label: "Facebook", value: L(c.facebook, lang), href: c.facebookUrl },
+  ...(c.showFacebook ? [{ icon: "facebook", label: "Facebook", value: L(c.facebook, lang), href: c.facebookUrl }] : []),
 ];
 ---
 <div class="contact-row">

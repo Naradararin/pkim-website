@@ -36,8 +36,8 @@
       "en": "We started with curtains for one home at a time, and we still work that way. We visit the site, measure it ourselves, help you choose fabric that suits the light and how the room is used, then install it properly. The one thing we never cut corners on is the finish you'll live with every day."
     },
     "sign": {
-      "th": "— P'Kim",
-      "en": "— P'Kim"
+      "th": "— คุณขิม",
+      "en": "— Khun Khim"
     },
     "photo": {
       "job": "ban-dong-ma-fai",
@@ -387,6 +387,7 @@
       "en": "Facebook page"
     },
     "facebookUrl": "https://www.facebook.com/profile.php?id=100063692205341",
+    "showFacebook": false,
     "address": {
       "th": "[ที่อยู่ร้าน]",
       "en": "[Shop address]"
