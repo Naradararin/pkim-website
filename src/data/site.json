@@ -275,16 +275,16 @@
         "x": 62,
         "y": 18,
         "title": {
-          "th": "รางและอุปกรณ์",
-          "en": "Tracks and hardware"
+          "th": "ช่วยเลือกผ้าและสี",
+          "en": "Help choosing fabric and colour"
         },
         "other": {
-          "th": "ใช้รางสำเร็จรูปขนาดเดียว ติดแล้วม่านลากติดขัด",
-          "en": "One-size ready-made tracks that snag"
+          "th": "ให้เปิดแค็ตตาล็อกเลือกเอง",
+          "en": "Hand you a catalogue to pick alone"
         },
         "ours": {
-          "th": "เลือกรางให้เหมาะกับน้ำหนักผ้าและหน้าต่าง ลากลื่นทั้งผืน",
-          "en": "Tracks matched to fabric weight and window, gliding smoothly end to end"
+          "th": "ช่วยเลือกผ้าและสีให้เข้ากับห้อง แสง และเฟอร์นิเจอร์",
+          "en": "We help match fabric and colour to your room, light and furniture"
         },
         "photo": {
           "job": "minburi-private-residence",
