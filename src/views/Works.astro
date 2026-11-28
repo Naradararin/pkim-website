@@ -11,15 +11,19 @@ const P = site.portfolio;
 const provinces = new Set(jobs.map((j) => j.province)).size;
 const count = (key: "jobTypes" | "curtainTypes", v: string) => jobs.filter((j) => j[key].includes(v)).length;
 const line = lineHref(lang);
+const heroPics = [...new Set(featured.flatMap((j) => [j.coverImg, ...j.photos]).filter(Boolean))].filter((_, i) => i % 2 === 0).slice(0, 5);
 ---
 <Base lang={lang} alt="/portfolio/" title={t(lang, "nav.portfolio")}>
   <WorksHeader lang={lang} alt="/portfolio/" />
   <main>
-    <section class="scene w-hero">
-      <Img class="bg" src={photo(P.heroPhoto)} alt="" loading="eager" />
-      <div class="wrap inner">
+    <section class="w-hero2">
+      <div class="collage" aria-hidden="true">
+        {heroPics.map((src, i) => <div class={`c c${i + 1}`} data-speed={[0.12, -0.08, 0.2, -0.14, 0.06][i]}><Img src={src} alt="" sizes="(max-width: 760px) 50vw, 30vw" widths={[480, 960]} loading="eager" /></div>)}
+      </div>
+      <div class="wrap type">
         <span class="eyebrow">{site.business.brand} · {t(lang, "works.eyebrow")}</span>
         <h1>{L(P.heroTitle, lang)}</h1>
+        <span class="hand">{lang === "th" ? "Our Stories" : "Our Stories"}</span>
         <T as="p" s={P.heroLead} lang={lang} />
       </div>
       <a class="scroll" href="#intro">SCROLL ↓</a>
@@ -143,6 +147,13 @@ const line = lineHref(lang);
       state.curtain = q.get("curtain") ?? "";
       apply(false);
       document.getElementById("collection")!.scrollIntoView();
+    }
+  </script>
+  <script>
+    const els = [...document.querySelectorAll<HTMLElement>(".w-hero2 [data-speed]")];
+    if (els.length && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const tick = () => { const y = scrollY; for (const e of els) e.style.translate = `0 ${(-y * Number(e.dataset.speed)).toFixed(1)}px`; };
+      addEventListener("scroll", () => requestAnimationFrame(tick), { passive: true }); tick();
     }
   </script>
 </Base>
