@@ -71,7 +71,21 @@
     "job.older": "ผลงานก่อนหน้า →",
     "job.related": "ผลงานที่คล้ายกัน",
     "job.otherWorks": "ผลงานอื่น",
-    "months": ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."]
+    "months": [
+      "ม.ค.",
+      "ก.พ.",
+      "มี.ค.",
+      "เม.ย.",
+      "พ.ค.",
+      "มิ.ย.",
+      "ก.ค.",
+      "ส.ค.",
+      "ก.ย.",
+      "ต.ค.",
+      "พ.ย.",
+      "ธ.ค."
+    ],
+    "job.viewFull": "ดูรูปเต็ม"
   },
   "en": {
     "nav.about": "About",
@@ -144,30 +158,110 @@
     "job.older": "Older project →",
     "job.related": "Similar projects",
     "job.otherWorks": "Other projects",
-    "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    "months": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "job.viewFull": "View full photo"
   },
   "terms": {
-    "ผ้าม่าน": { "th": "ผ้าม่าน", "en": "Curtains" },
-    "วอลเปเปอร์": { "th": "วอลเปเปอร์", "en": "Wallpaper" },
-    "มู่ลี่ไม้": { "th": "มู่ลี่ไม้", "en": "Wooden blinds" },
-    "ฉากกั้นห้อง/แอร์": { "th": "ฉากกั้นห้อง/แอร์", "en": "Room & A/C partitions" },
-    "ม่านม้วน": { "th": "ม่านม้วน", "en": "Roller blinds" },
-    "ลอน": { "th": "ม่านลอน", "en": "Wave" },
-    "จีบ": { "th": "ม่านจีบ", "en": "Pinch pleat" },
-    "ตาไก่": { "th": "ม่านตาไก่", "en": "Eyelet" },
-    "พับ": { "th": "ม่านพับ", "en": "Roman" },
-    "มู่ลี่": { "th": "มู่ลี่", "en": "Venetian blinds" },
-    "บ้านเดี่ยว": { "th": "บ้านเดี่ยว", "en": "House" },
-    "ทาวน์โฮม": { "th": "ทาวน์โฮม", "en": "Townhome" },
-    "คอนโด": { "th": "คอนโด", "en": "Condo" },
-    "โรงงาน": { "th": "โรงงาน", "en": "Factory" },
-    "วัด": { "th": "วัด", "en": "Temple" },
-    "กรุงเทพ": { "th": "กรุงเทพ", "en": "Bangkok" },
-    "ปทุมธานี": { "th": "ปทุมธานี", "en": "Pathum Thani" },
-    "ยโสธร": { "th": "ยโสธร", "en": "Yasothon" },
-    "ศรีสะเกษ": { "th": "ศรีสะเกษ", "en": "Sisaket" },
-    "พิษณุโลก": { "th": "พิษณุโลก", "en": "Phitsanulok" },
-    "High-End": { "th": "High-End", "en": "High-End" },
-    "ทั่วไป": { "th": "ทั่วไป", "en": "Standard" }
+    "ผ้าม่าน": {
+      "th": "ผ้าม่าน",
+      "en": "Curtains"
+    },
+    "วอลเปเปอร์": {
+      "th": "วอลเปเปอร์",
+      "en": "Wallpaper"
+    },
+    "มู่ลี่ไม้": {
+      "th": "มู่ลี่ไม้",
+      "en": "Wooden blinds"
+    },
+    "ฉากกั้นห้อง/แอร์": {
+      "th": "ฉากกั้นห้อง/แอร์",
+      "en": "Room & A/C partitions"
+    },
+    "ม่านม้วน": {
+      "th": "ม่านม้วน",
+      "en": "Roller blinds"
+    },
+    "ลอน": {
+      "th": "ม่านลอน",
+      "en": "Wave"
+    },
+    "จีบ": {
+      "th": "ม่านจีบ",
+      "en": "Pinch pleat"
+    },
+    "ตาไก่": {
+      "th": "ม่านตาไก่",
+      "en": "Eyelet"
+    },
+    "พับ": {
+      "th": "ม่านพับ",
+      "en": "Roman"
+    },
+    "มู่ลี่": {
+      "th": "มู่ลี่",
+      "en": "Venetian blinds"
+    },
+    "บ้านเดี่ยว": {
+      "th": "บ้านเดี่ยว",
+      "en": "House"
+    },
+    "ทาวน์โฮม": {
+      "th": "ทาวน์โฮม",
+      "en": "Townhome"
+    },
+    "คอนโด": {
+      "th": "คอนโด",
+      "en": "Condo"
+    },
+    "โรงงาน": {
+      "th": "โรงงาน",
+      "en": "Factory"
+    },
+    "วัด": {
+      "th": "วัด",
+      "en": "Temple"
+    },
+    "กรุงเทพ": {
+      "th": "กรุงเทพ",
+      "en": "Bangkok"
+    },
+    "ปทุมธานี": {
+      "th": "ปทุมธานี",
+      "en": "Pathum Thani"
+    },
+    "ยโสธร": {
+      "th": "ยโสธร",
+      "en": "Yasothon"
+    },
+    "ศรีสะเกษ": {
+      "th": "ศรีสะเกษ",
+      "en": "Sisaket"
+    },
+    "พิษณุโลก": {
+      "th": "พิษณุโลก",
+      "en": "Phitsanulok"
+    },
+    "High-End": {
+      "th": "High-End",
+      "en": "High-End"
+    },
+    "ทั่วไป": {
+      "th": "ทั่วไป",
+      "en": "Standard"
+    }
   }
 }
