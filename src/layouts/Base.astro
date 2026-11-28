@@ -43,7 +43,7 @@ const otherHref = url(alt, other);
       });
       // Fade sections in as they scroll into view.
       if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
-        const sel = ".sec-head, .pband .top > .btn, .pitem, .why-photo, .point, .bcard, .story .im, .story .card, .w-intro .wrap > *, .filters, .tile, .reviews blockquote, .contact-grid > *, .plain h2, .cs-side, .cs-text, .cs-photos > *, .cs-nav, .related h2, .w-cta .inner";
+        const sel = ".sec-head, .pband .top > .btn, .pitem, .why-photo, .point, .bcard, .story .im, .story .card, .w-intro .wrap > *, .filters, .tile, .reviews blockquote, .contact-grid > *, .plain h2, .cs-side, .cs-text, .cs-mag .f, .cs-nav, .related h2, .w-cta .inner";
         const els = [...document.querySelectorAll<HTMLElement>(sel)];
         const io = new IntersectionObserver((entries) => {
           for (const en of entries) if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
