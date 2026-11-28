@@ -462,3 +462,9 @@ h1, h2, h3, .w-nums b, .stats b { font-stretch: var(--display-stretch, 100%); }
 /* Signature: photos open from the centre like curtains being drawn apart */
 .reveal.pitem .ph, .reveal.why-photo, .reveal.bcard, .story .reveal.im { clip-path: inset(0 50% 0 50% round var(--radius)); transition: clip-path 1.5s cubic-bezier(.65,0,.25,1) var(--d, 0s), opacity .9s var(--ease) var(--d, 0s), transform .9s var(--ease) var(--d, 0s); }
 .reveal.in.pitem .ph, .reveal.in.why-photo, .reveal.in.bcard, .story .reveal.in.im { clip-path: inset(0 0 0 0 round var(--radius)); }
+
+/* Texture: fine paper grain over the whole page, linen weave on light sections */
+body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.sec, .plain { background-image:
+  repeating-linear-gradient(0deg, rgba(120,100,80,.035) 0 1px, transparent 1px 3px),
+  repeating-linear-gradient(90deg, rgba(120,100,80,.03) 0 1px, transparent 1px 4px); }
