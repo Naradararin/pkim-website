@@ -211,14 +211,14 @@ const lead = L(site.hero.lead, lang);
     </section>
 
     <!-- 6 REVIEWS -->
-    <section class="plain" id="reviews">
+    {site.showReviews && <section class="plain" id="reviews">
       <div class="wrap">
         <h2>{t(lang, "reviews.title")}</h2>
         <div class="reviews">
           {site.reviews.map((r) => <blockquote><T as="p" s={r.text} lang={lang} /><T as="cite" s={r.who} lang={lang} /></blockquote>)}
         </div>
       </div>
-    </section>
+    </section>}
 
     <!-- 7 ADDRESS + CONTACT -->
     <section class="plain" id="contact">
@@ -230,6 +230,7 @@ const lead = L(site.hero.lead, lang);
             {c.mapEmbedUrl ? <iframe src={c.mapEmbedUrl} title={t(lang, "contact.map")} loading="lazy" referrerpolicy="no-referrer-when-downgrade" /> : <div class="map"><T s={`[${t(lang, "contact.map")} Google Maps]`} lang={lang} /></div>}
             <T s={c.address} lang={lang} />
             <T s={c.hours} lang={lang} />
+            {c.mapUrl && <a class="link" href={c.mapUrl} target="_blank" rel="noopener">{t(lang, "contact.openMap")} ↗</a>}
           </div>
         </div>
       </div>

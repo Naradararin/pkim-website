@@ -85,7 +85,8 @@
       "พ.ย.",
       "ธ.ค."
     ],
-    "job.viewFull": "ดูรูปเต็ม"
+    "job.viewFull": "ดูรูปเต็ม",
+    "contact.openMap": "เปิดใน Google Maps"
   },
   "en": {
     "nav.about": "About",
@@ -172,7 +173,8 @@
       "Nov",
       "Dec"
     ],
-    "job.viewFull": "View full photo"
+    "job.viewFull": "View full photo",
+    "contact.openMap": "Open in Google Maps"
   },
   "terms": {
     "ผ้าม่าน": {
