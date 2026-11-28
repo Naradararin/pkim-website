@@ -21,6 +21,8 @@ const line = lineHref(lang);
 const heroPics = jobs.filter((j) => j.level === "High-End" && j.id !== site.hero.photo.job).flatMap((j) => j.photos.slice(2, 4)).slice(0, 3);
 const morePics = jobs.filter((j) => j.level !== "High-End").flatMap((j) => j.photos.slice(0, 1)).slice(0, 6);
 const aboutPics = [heroPics[2] ?? morePics[2], morePics[3], morePics[4]];
+const megaText = lang === "th" ? "เกษสินีการม่าน" : "GOLDEN LUX";
+const megaChars = [...new Intl.Segmenter("th", { granularity: "grapheme" }).segment(megaText)].map((g) => g.segment);
 const heroJob = jobs.find((j) => j.id === site.hero.photo.job);
 const lead = L(site.hero.lead, lang);
 ---
@@ -47,14 +49,14 @@ const lead = L(site.hero.lead, lang);
     <!-- 1 HERO: curtain-opening intro, then a scroll-scrubbed collage that opens into one full photo -->
     <script is:inline>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&!sessionStorage.getItem("gl-intro")){document.documentElement.classList.add("intro-on");sessionStorage.setItem("gl-intro","1")}}catch(e){}</script>
     <div class="intro" data-intro aria-hidden="true">
-      <div class="roll"><div>{Array.from({ length: 8 }, () => <span>Golden Lux</span>)}</div></div>
+      <div class="roll"><div>{Array.from({ length: 8 }, (_, i) => <span class={i % 2 ? "sc" : lang === "th" ? "th" : ""}>{i % 2 ? "Golden Lux" : megaText}</span>)}</div></div>
       <i class="cl l" /><i class="cl r" />
     </div>
     <section class="hero3" id="top" data-scrub>
       <div class="stage">
         <div class="ph main"><Img src={photo(site.hero.photo)} alt="" sizes="100vw" loading="eager" /></div>
         {heroPics.concat(morePics).slice(0, 4).map((ref, i) => <div class={`ph f f${i + 1}`}><Img src={ref} alt="" sizes="(max-width: 760px) 34vw, 18vw" widths={[480]} loading="eager" /></div>)}
-        <h2 class="mega" aria-hidden="true">{"GOLDEN LUX".split("").map((ch, i) => <span style={`--i:${i}`}>{ch === " " ? "\u00a0" : ch}</span>)}</h2>
+        <h2 class={`mega ${lang}`} aria-hidden="true">{megaChars.map((ch, i) => <span style={`--i:${i}`}>{ch === " " ? "\u00a0" : ch}</span>)}</h2>
         <span class="hand">Curtain &amp; Blinds</span>
         <div class="card">
           <T class="eyebrow" s={site.business.area} lang={lang} />
