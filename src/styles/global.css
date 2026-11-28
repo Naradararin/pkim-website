@@ -468,3 +468,19 @@ body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .sec, .plain { background-image:
   repeating-linear-gradient(0deg, rgba(120,100,80,.035) 0 1px, transparent 1px 3px),
   repeating-linear-gradient(90deg, rgba(120,100,80,.03) 0 1px, transparent 1px 4px); }
+
+/* Featured works: tall panels that widen on hover (accordion) */
+@media (min-width: 861px) {
+  .pband .best { display: flex; gap: 14px; height: min(78vh, 680px); }
+  .pband .bcard { position: relative; isolation: isolate; flex: 1 1 0; min-width: 0; overflow: hidden; border-radius: var(--radius); align-content: end; padding: 28px; color: #fff; transition: flex 1s cubic-bezier(.65,0,.25,1), clip-path 1.5s cubic-bezier(.65,0,.25,1) var(--d, 0s), opacity .9s var(--ease) var(--d, 0s), transform .9s var(--ease) var(--d, 0s); }
+  .pband .best:hover .bcard { flex: .7 1 0; }
+  .pband .best .bcard:hover { flex: 2.4 1 0; }
+  .pband .bcard .im { position: absolute; inset: 0; aspect-ratio: auto; z-index: -1; }
+  .pband .bcard .im::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,15,10,.72), rgba(20,15,10,0) 55%); }
+  .pband .bcard .im img { transition: transform 1.4s var(--ease); }
+  .pband .bcard:hover .im img { transform: scale(1.05); filter: none; }
+  .pband .bcard h3 { font-size: clamp(24px, 2.4vw, 36px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pband .bcard .m, .pband .bcard .more { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+  .pband .bcard:hover .m, .pband .bcard:hover .more { opacity: 1; transform: none; transition-delay: .35s; }
+  .pband .bcard .rank { font-size: 56px; top: 20px; left: 24px; }
+}
