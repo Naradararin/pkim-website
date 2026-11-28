@@ -19,6 +19,8 @@ const nav = [
 const c = site.contact;
 const line = lineHref(lang);
 const heroPics = jobs.filter((j) => j.level === "High-End" && j.id !== site.hero.photo.job).flatMap((j) => j.photos.slice(2, 4)).slice(0, 3);
+const morePics = jobs.filter((j) => j.level !== "High-End").flatMap((j) => j.photos.slice(0, 1)).slice(0, 6);
+const aboutPics = [heroPics[2] ?? morePics[2], morePics[3], morePics[4]];
 const heroJob = jobs.find((j) => j.id === site.hero.photo.job);
 const lead = L(site.hero.lead, lang);
 ---
@@ -42,47 +44,55 @@ const lead = L(site.hero.lead, lang);
   </aside>
 
   <main>
-    <!-- 1 HERO -->
-    <section class="hero2" id="top">
-      <span class="ghost" aria-hidden="true">Golden Lux</span>
-      <div class="wrap grid">
-        <div class="txt">
+    <!-- 1 HERO: curtain-opening intro, then a scroll-scrubbed collage that opens into one full photo -->
+    <script is:inline>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&!sessionStorage.getItem("gl-intro")){document.documentElement.classList.add("intro-on");sessionStorage.setItem("gl-intro","1")}}catch(e){}</script>
+    <div class="intro" data-intro aria-hidden="true">
+      <div class="roll"><div>{Array.from({ length: 8 }, () => <span>Golden Lux</span>)}</div></div>
+      <i class="cl l" /><i class="cl r" />
+    </div>
+    <section class="hero3" id="top" data-scrub>
+      <div class="stage">
+        <div class="ph main"><Img src={photo(site.hero.photo)} alt="" sizes="100vw" loading="eager" /></div>
+        {heroPics.concat(morePics).slice(0, 4).map((ref, i) => <div class={`ph f f${i + 1}`}><Img src={ref} alt="" sizes="(max-width: 760px) 34vw, 18vw" widths={[480]} loading="eager" /></div>)}
+        <h2 class="mega" aria-hidden="true">{"GOLDEN LUX".split("").map((ch, i) => <span style={`--i:${i}`}>{ch === " " ? "\u00a0" : ch}</span>)}</h2>
+        <span class="hand">Curtain &amp; Blinds</span>
+        <div class="card">
           <T class="eyebrow" s={site.business.area} lang={lang} />
           <T as="h1" s={site.hero.title} lang={lang} />
-          <span class="hand">Curtain &amp; Blinds</span>
           <T as="p" class="lead" s={site.hero.lead} lang={lang} />
           <div class="row">
             <a class="btn dark" href="#portfolio">{t(lang, "cta.viewWorks")}</a>
             <a class="btn" href="#products">{t(lang, "cta.viewProducts")}</a>
           </div>
         </div>
-        <div class="pics" aria-hidden="true">
-          <div class="p p1" data-speed="0.06"><Img src={photo(site.hero.photo)} alt="" sizes="(max-width: 860px) 80vw, 520px" loading="eager" /></div>
-          <div class="p p2" data-speed="-0.1"><Img src={heroPics[0]} alt="" sizes="260px" widths={[520]} loading="eager" /></div>
-          <div class="p p3" data-speed="0.16"><Img src={heroPics[1]} alt="" sizes="220px" widths={[440]} loading="eager" /></div>
-        </div>
-      </div>
-      <div class="wrap foot">
-        {heroJob && <a href={url(`/portfolio/${heroJob.id}/`, lang)}>{t(lang, "hero.photo")} {view(heroJob, lang).title}</a>}
-        <a href="#about">{t(lang, "hero.scroll")}</a>
+        <a class="cue" href="#about">{t(lang, "hero.scroll")}</a>
       </div>
     </section>
 
-    <!-- 2 ABOUT -->
-    <section class="about2" id="about">
-      <div class="wrap grid">
-        <div class="pics" aria-hidden="true">
-          <div class="p p1" data-speed="0.05"><Img src={photo(site.about.photo)} alt="" sizes="(max-width: 860px) 80vw, 480px" /></div>
-          <div class="p p2" data-speed="-0.08"><Img src={heroPics[2]} alt="" sizes="260px" widths={[520]} /></div>
-          <span class="num" aria-hidden="true">Kasinee</span>
+    <!-- 2 ABOUT: words rise, spinning badge, expanding photo columns -->
+    <section class="about3" id="about">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <span class="eyebrow">{t(lang, "about.eyebrow")}</span>{lang === "th" && <span class="script">{t("en", "about.eyebrow")}</span>}
+            <h2 class="words">{L(site.about.title, lang).split(" ").map((w, i) => <span class="w" style={`--i:${i}`}><span>{w}</span></span>)}</h2>
+          </div>
+          <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="arc" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+            <text><textPath href="#arc">KASINEE CURTAINS · SINCE 2012 · GOLDEN LUX · </textPath></text>
+            <text x="100" y="112" text-anchor="middle" class="mid">{lang === "th" ? "2555" : "2012"}</text>
+          </svg>
         </div>
-        <div class="text">
-          <span class="eyebrow">{t(lang, "about.eyebrow")}</span>{lang === "th" && <span class="script">{t("en", "about.eyebrow")}</span>}
-          <T as="h2" s={site.about.title} lang={lang} />
-          <T as="p" s={site.about.text} lang={lang} />
-          <span class="sign">{L(site.about.sign, lang)}</span>
-          <div class="stats">
-            {site.about.stats.map((s) => <div><T as="b" s={s.value} lang={lang} /><span>{L(s.label, lang)}</span></div>)}
+        <div class="cols">
+          {site.about.stats.map((st, i) => (
+            <div class="col" style={`--i:${i}`}>
+              <div class="im"><Img src={aboutPics[i]} alt="" sizes="(max-width: 760px) 100vw, 50vw" widths={[900]} /></div>
+              <div class="cap"><T as="b" s={st.value} lang={lang} /><span>{L(st.label, lang)}</span></div>
+            </div>
+          ))}
+          <div class="col story" style="--i:3">
+            <div class="im"><Img src={photo(site.about.photo)} alt="" sizes="(max-width: 760px) 100vw, 50vw" widths={[900]} /></div>
+            <div class="cap"><T as="p" s={site.about.text} lang={lang} /><span class="sign">{L(site.about.sign, lang)}</span></div>
           </div>
         </div>
       </div>
@@ -265,5 +275,22 @@ const lead = L(site.hero.lead, lang);
       const tick = () => { for (const e of els) { const r = e.getBoundingClientRect(); const c = r.top + r.height / 2 - innerHeight / 2; e.style.translate = `0 ${(-c * Number(e.dataset.speed)).toFixed(1)}px`; } };
       addEventListener("scroll", () => requestAnimationFrame(tick), { passive: true }); tick();
     }
+  </script>
+  <script>
+    // Intro: rolling name, then the "curtains" part open
+    const root = document.documentElement;
+    if (root.classList.contains("intro-on")) {
+      setTimeout(() => root.classList.add("intro-open"), 1500);
+      setTimeout(() => root.classList.remove("intro-on", "intro-open"), 2700);
+    }
+    root.classList.add("hero-go");
+    // Scroll-scrubbed sections: --p goes 0 -> 1 while the sticky stage is pinned
+    const scrubs = [...document.querySelectorAll<HTMLElement>("[data-scrub]")];
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const run = () => { for (const s of scrubs) { const r = s.getBoundingClientRect(); const span = r.height - innerHeight; const p = still ? 0 : Math.min(1, Math.max(0, -r.top / Math.max(1, span))); s.style.setProperty("--p", p.toFixed(4)); s.classList.toggle("open", still || p > .6); } };
+    addEventListener("scroll", () => requestAnimationFrame(run), { passive: true }); addEventListener("resize", run); run();
+    // About: columns and words animate when they enter
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), { threshold: .25 });
+    document.querySelectorAll(".about3 .words, .about3 .cols").forEach((e) => io.observe(e));
   </script>
 </Base>
