@@ -460,8 +460,8 @@ h1, h2, h3, .w-nums b, .stats b { font-stretch: var(--display-stretch, 100%); }
 .pitem .num { color: var(--accent-text); }
 
 /* Signature: photos open from the centre like curtains being drawn apart */
-.reveal.pitem .ph, .reveal.why-photo, .reveal.bcard, .story .reveal.im { clip-path: inset(0 50% 0 50% round var(--radius)); transition: clip-path 1.5s cubic-bezier(.65,0,.25,1) var(--d, 0s), opacity .9s var(--ease) var(--d, 0s), transform .9s var(--ease) var(--d, 0s); }
-.reveal.in.pitem .ph, .reveal.in.why-photo, .reveal.in.bcard, .story .reveal.in.im { clip-path: inset(0 0 0 0 round var(--radius)); }
+.reveal.pitem .ph, .reveal.why-photo > img, .reveal.why-photo > picture, .reveal.bcard .im, .story .reveal.im > * { clip-path: inset(0 50% 0 50% round var(--radius)); transition: clip-path 1.5s cubic-bezier(.65,0,.25,1) var(--d, 0s), opacity .9s var(--ease) var(--d, 0s), transform .9s var(--ease) var(--d, 0s); }
+.reveal.in.pitem .ph, .reveal.in.why-photo > img, .reveal.in.why-photo > picture, .reveal.in.bcard .im, .story .reveal.in.im > * { clip-path: inset(0 0 0 0 round var(--radius)); }
 
 /* Texture: fine paper grain over the whole page, linen weave on light sections */
 body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
@@ -527,5 +527,5 @@ body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   .cs-mag .f2, .cs-mag .ch:nth-child(even) .f2 { grid-column: 1 / 4; grid-row: 2; margin-top: 0; }
   .cs-mag .f3, .cs-mag .ch:nth-child(even) .f3 { grid-column: 3 / 7; grid-row: 2; margin-top: 40%; }
 }
-.cs-mag .reveal.f { clip-path: inset(0 50% 0 50% round var(--radius-sm)); transition: clip-path 1.5s cubic-bezier(.65,0,.25,1) var(--d, 0s), opacity .9s var(--ease) var(--d, 0s), transform .9s var(--ease) var(--d, 0s); }
-.cs-mag .reveal.in.f { clip-path: inset(0 0 0 0 round var(--radius-sm)); }
+.cs-mag .reveal.f > * { clip-path: inset(0 50% 0 50% round var(--radius-sm)); transition: clip-path 1.5s cubic-bezier(.65,0,.25,1) var(--d, 0s), opacity .9s var(--ease) var(--d, 0s), transform .9s var(--ease) var(--d, 0s); }
+.cs-mag .reveal.in.f > * { clip-path: inset(0 0 0 0 round var(--radius-sm)); }
