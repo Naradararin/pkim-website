@@ -445,3 +445,26 @@ dialog.modal[open]::backdrop { animation: fade .4s var(--ease); }
 }
 
 h1, h2, h3, .w-nums b, .stats b { font-stretch: var(--display-stretch, 100%); }
+
+/* ===== ROUND 4: richer feel on light background ===== */
+.script { display:block; font-family:"Playfair Display", Georgia, serif; font-style:italic; font-size:clamp(18px,1.6vw,22px); color:var(--accent); letter-spacing:.01em; margin:-2px 0 6px; }
+.sec-head .script, .about .script { margin-bottom: 4px; }
+.about .script { color: #E2C48F; }
+.sec-head h2, .pband h2, .why h2 { font-size: clamp(40px, 5vw, 64px); }
+.sec-head::after { content:""; display:block; width:56px; height:1px; background:var(--accent); margin-top:22px; }
+.strip { overflow:hidden; padding: 28px 0; background: var(--bg); }
+.strip .track { display:flex; gap:18px; width:max-content; animation: strip 70s linear infinite; }
+.strip:hover .track { animation-play-state: paused; }
+.strip a { position:relative; display:block; width:340px; aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden; flex:none; }
+.strip img { width:100%; height:100%; object-fit:cover; transition: transform .8s var(--ease); }
+.strip a:hover img { transform: scale(1.06); }
+.strip span { position:absolute; left:14px; right:14px; bottom:12px; color:#fff; font-size:14px; text-shadow:0 1px 8px rgba(0,0,0,.5); }
+@keyframes strip { to { transform: translateX(-50%); } }
+.pitem .ph { position:relative; }
+.pitem .ph .alt { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity .7s var(--ease), transform 1.2s var(--ease); }
+.pitem:hover .ph .alt { opacity:1; transform: scale(1.04); }
+.pitem h3 { font-size: clamp(30px, 3vw, 40px); }
+.pitem .script { font-size: 17px; }
+.pitem .num { color: var(--accent-text); }
+@media (prefers-reduced-motion: reduce) { .strip .track { animation: none; } }
+@media (max-width: 760px) { .strip a { width: 240px; } }
