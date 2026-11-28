@@ -47,7 +47,7 @@ const lead = L(site.hero.lead, lang);
 
   <main>
     <!-- 1 HERO: curtain-opening intro, then a scroll-scrubbed collage that opens into one full photo -->
-    <script is:inline>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&!sessionStorage.getItem("gl-intro")){document.documentElement.classList.add("intro-on");sessionStorage.setItem("gl-intro","1")}}catch(e){}</script>
+    <script is:inline define:vars={{ lang }}>try{var R=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){R.classList.add("hero-wait");var k="gl-intro-"+lang;if(!sessionStorage.getItem(k)){R.classList.add("intro-on");sessionStorage.setItem(k,"1")}}}catch(e){}</script>
     <div class="intro" data-intro aria-hidden="true">
       <div class="roll"><div>{Array.from({ length: 8 }, (_, i) => <span class={i % 2 ? "sc" : lang === "th" ? "th" : ""}>{i % 2 ? "Golden Lux" : megaText}</span>)}</div></div>
       <i class="cl l" /><i class="cl r" />
@@ -278,11 +278,19 @@ const lead = L(site.hero.lead, lang);
   <script>
     // Intro: rolling name, then the "curtains" part open
     const root = document.documentElement;
+    // Start only when the hero photos and fonts are ready, so nothing pops in late
+    const heroImgs = [...document.querySelectorAll<HTMLImageElement>(".hero3 img")];
+    const ready = Promise.race([
+      Promise.all([document.fonts.ready, ...heroImgs.map((i) => i.decode().catch(() => {}))]),
+      new Promise((r) => setTimeout(r, 3500)),
+    ]);
+    const go = () => { root.classList.add("hero-go"); root.classList.remove("hero-wait"); };
     if (root.classList.contains("intro-on")) {
-      setTimeout(() => root.classList.add("intro-open"), 1500);
-      setTimeout(() => root.classList.remove("intro-on", "intro-open"), 2700);
-    }
-    root.classList.add("hero-go");
+      Promise.all([ready, new Promise((r) => setTimeout(r, 1400))]).then(() => {
+        root.classList.add("intro-open"); go();
+        setTimeout(() => root.classList.remove("intro-on", "intro-open"), 1300);
+      });
+    } else ready.then(go);
     // Scroll-scrubbed sections: --p goes 0 -> 1 while the sticky stage is pinned
     const scrubs = [...document.querySelectorAll<HTMLElement>("[data-scrub]")];
     const still = matchMedia("(prefers-reduced-motion: reduce)").matches;

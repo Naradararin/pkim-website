@@ -614,7 +614,7 @@ body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .intro .cl.l { left: 0; box-shadow: inset -30px 0 40px -30px rgba(58,49,41,.25); }
 .intro .cl.r { right: 0; box-shadow: inset 30px 0 40px -30px rgba(58,49,41,.25); }
 .intro .roll { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; overflow: hidden; transition: opacity .5s; }
-.intro .roll > div { display: grid; justify-items: center; width: 100%; text-align: center; animation: roll 1.5s cubic-bezier(.6,0,.2,1) both; }
+.intro .roll > div { display: grid; justify-items: center; width: 100%; text-align: center; animation: roll 3.5s cubic-bezier(.45,0,.25,1) both; will-change: transform; }
 .intro .roll span { font-family: "Playfair Display", serif; font-size: clamp(44px, 9vw, 130px); line-height: 1; letter-spacing: .06em; text-transform: uppercase; color: var(--fg); }
 .intro .roll span.th, .hero3 .mega.th { font-family: var(--font-logo); font-weight: 400; letter-spacing: 0; text-transform: none; }
 .hero3 .mega.th { font-size: clamp(48px, 11vw, 180px); line-height: 1.25; }
@@ -655,8 +655,9 @@ body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .hero-go .hero3 .f3 { animation-delay: calc(var(--d0, .15s) + .55s); --fx: 40vw; --fy: -30svh; }
 .hero-go .hero3 .f4 { animation-delay: calc(var(--d0, .15s) + .7s); --fx: 30vw; --fy: 40svh; }
 .hero-go .hero3 .hand { animation: rise 1.2s var(--ease) backwards; animation-delay: calc(var(--d0, .15s) + 1s); }
-.intro-on .hero3 { --d0: 1.35s; }
-@keyframes letter { from { opacity: 0; transform: translateY(60%) rotate(8deg); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+.hero-wait .hero3 .mega, .hero-wait .hero3 .ph, .hero-wait .hero3 .hand { visibility: hidden; }
+.hero3 .mega span, .hero3 .f, .hero3 .main { will-change: transform, opacity; }
+@keyframes letter { from { opacity: 0; transform: translateY(70%) rotate(6deg); } to { opacity: 1; transform: none; } }
 @keyframes grow { from { scale: .4; opacity: 0; } to { scale: 1; opacity: 1; } }
 @keyframes fly { from { transform: translate(var(--fx), var(--fy)) rotate(-20deg) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
 @media (max-width: 760px) {
