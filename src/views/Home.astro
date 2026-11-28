@@ -18,6 +18,7 @@ const nav = [
 ];
 const c = site.contact;
 const line = lineHref(lang);
+const heroPics = jobs.filter((j) => j.level === "High-End" && j.id !== site.hero.photo.job).flatMap((j) => j.photos.slice(2, 4)).slice(0, 3);
 const heroJob = jobs.find((j) => j.id === site.hero.photo.job);
 const lead = L(site.hero.lead, lang);
 ---
@@ -42,29 +43,39 @@ const lead = L(site.hero.lead, lang);
 
   <main>
     <!-- 1 HERO -->
-    <section class="scene hero" id="top">
-      <Img class="bg" src={photo(site.hero.photo)} alt="" loading="eager" />
-      <div class="wrap inner">
-        <T class="eyebrow" s={site.business.area} lang={lang} />
-        <T as="h1" s={site.hero.title} lang={lang} />
-        <T as="p" class="lead" s={site.hero.lead} lang={lang} />
-        <div class="row">
-          <a class="btn light" href="#portfolio">{t(lang, "cta.viewWorks")}</a>
-          <a class="btn" href="#products">{t(lang, "cta.viewProducts")}</a>
+    <section class="hero2" id="top">
+      <span class="ghost" aria-hidden="true">Golden Lux</span>
+      <div class="wrap grid">
+        <div class="txt">
+          <T class="eyebrow" s={site.business.area} lang={lang} />
+          <T as="h1" s={site.hero.title} lang={lang} />
+          <span class="hand">Curtain &amp; Blinds</span>
+          <T as="p" class="lead" s={site.hero.lead} lang={lang} />
+          <div class="row">
+            <a class="btn dark" href="#portfolio">{t(lang, "cta.viewWorks")}</a>
+            <a class="btn" href="#products">{t(lang, "cta.viewProducts")}</a>
+          </div>
         </div>
-        <div class="foot">
-          {heroJob && <a href={url(`/portfolio/${heroJob.id}/`, lang)}>{t(lang, "hero.photo")} {view(heroJob, lang).title}</a>}
-          <a href="#about">{t(lang, "hero.scroll")}</a>
+        <div class="pics" aria-hidden="true">
+          <div class="p p1" data-speed="0.06"><Img src={photo(site.hero.photo)} alt="" sizes="(max-width: 860px) 80vw, 520px" loading="eager" /></div>
+          <div class="p p2" data-speed="-0.1"><Img src={heroPics[0]} alt="" sizes="260px" widths={[520]} loading="eager" /></div>
+          <div class="p p3" data-speed="0.16"><Img src={heroPics[1]} alt="" sizes="220px" widths={[440]} loading="eager" /></div>
         </div>
+      </div>
+      <div class="wrap foot">
+        {heroJob && <a href={url(`/portfolio/${heroJob.id}/`, lang)}>{t(lang, "hero.photo")} {view(heroJob, lang).title}</a>}
+        <a href="#about">{t(lang, "hero.scroll")}</a>
       </div>
     </section>
 
-
-
     <!-- 2 ABOUT -->
-    <section class="scene about" id="about">
-      <Img class="bg" src={photo(site.about.photo)} alt="" />
-      <div class="wrap inner">
+    <section class="about2" id="about">
+      <div class="wrap grid">
+        <div class="pics" aria-hidden="true">
+          <div class="p p1" data-speed="0.05"><Img src={photo(site.about.photo)} alt="" sizes="(max-width: 860px) 80vw, 480px" /></div>
+          <div class="p p2" data-speed="-0.08"><Img src={heroPics[2]} alt="" sizes="260px" widths={[520]} /></div>
+          <span class="num" aria-hidden="true">Kasinee</span>
+        </div>
         <div class="text">
           <span class="eyebrow">{t(lang, "about.eyebrow")}</span>{lang === "th" && <span class="script">{t("en", "about.eyebrow")}</span>}
           <T as="h2" s={site.about.title} lang={lang} />
@@ -238,5 +249,12 @@ const lead = L(site.hero.lead, lang);
       const dlg = el.closest("dialog");
       if (dlg && (el === dlg || el.closest("[data-close],[data-close-go]"))) dlg.close();
     });
+  </script>
+  <script>
+    const els = [...document.querySelectorAll<HTMLElement>("[data-speed]")];
+    if (els.length && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const tick = () => { for (const e of els) { const r = e.getBoundingClientRect(); const c = r.top + r.height / 2 - innerHeight / 2; e.style.translate = `0 ${(-c * Number(e.dataset.speed)).toFixed(1)}px`; } };
+      addEventListener("scroll", () => requestAnimationFrame(tick), { passive: true }); tick();
+    }
   </script>
 </Base>
