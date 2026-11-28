@@ -28,6 +28,8 @@ for (let i = 0; i < rest.length; i++) {
   else rows.push({ kind: "solo", items: [p] });
 }
 const text = v.story || v.summary;
+const chapters: ImageMetadata[][] = [];
+for (let i = 0; i < rest.length; i += 3) chapters.push(rest.slice(i, i + 3));
 ---
 <Base lang={lang} alt={alt} title={v.title} description={`${v.title} · ${v.jobTypes.join(", ")} · ${v.province}`}>
   <WorksHeader lang={lang} alt={alt} />
@@ -61,14 +63,13 @@ const text = v.story || v.summary;
         ) : j.featured ? (
           <div class="cs-text"><h2>{t(lang, "job.storyTitle")}</h2><T as="p" s={t(lang, "job.storyTodo")} lang={lang} /></div>
         ) : null}
-        <div class="cs-photos">
-          {rows.map((r) =>
-            r.kind === "pair" ? (
-              <div class="row2">{r.items.map((p) => <Img src={p} alt="" sizes="(max-width: 520px) 100vw, 420px" />)}</div>
-            ) : (
-              <div class={r.kind === "solo" ? "solo" : ""}><Img src={r.items[0]} alt="" sizes="(max-width: 860px) 100vw, 860px" /></div>
-            )
-          )}
+        <div class="cs-mag">
+          {chapters.map((ch, ci) => (
+            <section class="ch">
+              <span class="chn">{String(ci + 1).padStart(2, "0")}</span>
+              {ch.map((p, k) => <figure class={`f f${k + 1}`}><Img src={p} alt="" sizes="(max-width: 760px) 100vw, 560px" /></figure>)}
+            </section>
+          ))}
         </div>
       </div>
     </div>

@@ -59,12 +59,14 @@ const lead = L(site.hero.lead, lang);
       </div>
     </section>
 
+
+
     <!-- 2 ABOUT -->
     <section class="scene about" id="about">
       <Img class="bg" src={photo(site.about.photo)} alt="" />
       <div class="wrap inner">
         <div class="text">
-          <span class="eyebrow">{t(lang, "about.eyebrow")}</span>
+          <span class="eyebrow">{t(lang, "about.eyebrow")}</span>{lang === "th" && <span class="script">{t("en", "about.eyebrow")}</span>}
           <T as="h2" s={site.about.title} lang={lang} />
           <T as="p" s={site.about.text} lang={lang} />
           <span class="sign">{L(site.about.sign, lang)}</span>
@@ -79,16 +81,17 @@ const lead = L(site.hero.lead, lang);
     <section class="sec products" id="products">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">{t(lang, "products.eyebrow")}</span>
+          <span class="eyebrow">{t(lang, "products.eyebrow")}</span>{lang === "th" && <span class="script">{t("en", "products.eyebrow")}</span>}
           <h2>{L(site.products.title, lang)}</h2>
           <p>{L(site.products.lead, lang)}</p>
         </div>
         <div class="pgrid">
           {site.products.items.map((p, i) => (
             <button class="pitem" type="button" data-open={`dlg-${p.id}`}>
-              <div class="ph"><Img src={photo(p.photos[0])} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></div>
+              <div class="ph"><Img src={photo(p.photos[0])} alt="" sizes="(max-width: 760px) 100vw, 33vw" />{p.photos[1] && <Img class="alt" src={photo(p.photos[1])} alt="" sizes="(max-width: 760px) 100vw, 33vw" />}</div>
               <span class="num">{t(lang, "products.item")} {String(i + 1).padStart(2, "0")}</span>
               <T as="h3" s={p.name} lang={lang} />
+              {lang === "th" && <span class="script">{L(p.name, "en")}</span>}
               <T class="sub" s={p.sub} lang={lang} />
               <span class="more">{t(lang, "cta.details")}</span>
             </button>
@@ -137,7 +140,7 @@ const lead = L(site.hero.lead, lang);
     <section class="sec why" id="why">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">{t(lang, "why.eyebrow")}</span>
+          <span class="eyebrow">{t(lang, "why.eyebrow")}</span>{lang === "th" && <span class="script">{t("en", "why.eyebrow")}</span>}
           <h2>{L(site.why.title, lang)}</h2>
           <T as="p" s={site.why.lead} lang={lang} />
         </div>
@@ -171,7 +174,7 @@ const lead = L(site.hero.lead, lang);
       <div class="wrap">
         <div class="top">
           <div class="sec-head">
-            <span class="eyebrow">{t(lang, "band.eyebrow")}</span>
+            <span class="eyebrow">{t(lang, "band.eyebrow")}</span>{lang === "th" && <span class="script">{t("en", "band.eyebrow")}</span>}
             <h2>{L(site.portfolioBand.title, lang)}</h2>
             <p>{L(site.portfolioBand.lead, lang)}</p>
           </div>
