@@ -1,109 +1,460 @@
 {
-  "_readme": "ข้อความทั้งหมดของหน้าแรกและหน้าผลงาน แต่ละข้อความมี th (ไทย) และ en (อังกฤษ). ข้อความที่อยู่ใน [วงเล็บเหลี่ยม] คือที่ยังรอข้อมูลจริง จะขึ้นกรอบเส้นประบนเว็บจนกว่าจะแก้ (ปิดกรอบทั้งหมดได้ที่ showPlaceholderMarks). รูปอ้างอิงแบบ { job: id ผลงาน, n: รูปที่ }",
+  "_readme": "ข้อความทั้งหมดของหน้าแรกและหน้าผลงาน แต่ละข้อความมี th (ไทย) และ en (อังกฤษ). ข้อความที่อยู่ใน [วงเล็บเหลี่ยม] คือที่ยังรอข้อมูลจริง จะขึ้นกรอบเส้นประบนเว็บจนกว่าจะแก้ (ปิดกรอบทั้งหมดได้ที่ showPlaceholderMarks). รูปอ้างอิงแบบ { job: id ผลงาน, n: รูปที่ } ข้อความที่ไม่มีวงเล็บเป็นร่างที่เขียนไว้ให้ แก้ได้ตามใจ ส่วนตัวเลข ราคา รีวิว ที่อยู่ เวลาทำการ ต้องใส่ข้อมูลจริงเท่านั้น",
   "showPlaceholderMarks": true,
   "business": {
-    "name": { "th": "เกษสินีการม่าน", "en": "Kasinee Curtains" },
+    "name": {
+      "th": "เกษสินีการม่าน",
+      "en": "Kasinee Curtains"
+    },
     "brand": "Golden Lux Curtain & Blinds",
-    "area": { "th": "[พื้นที่ให้บริการ เช่น กรุงเทพฯ · ปทุมธานี · ทั่วประเทศ]", "en": "[Service area, e.g. Bangkok · Pathum Thani · nationwide]" }
+    "area": {
+      "th": "[กรุงเทพฯ · ปริมณฑล · รับงานต่างจังหวัด]",
+      "en": "[Bangkok · Greater Bangkok · upcountry projects]"
+    }
   },
   "hero": {
-    "title": { "th": "[ประโยคเดียวที่บอกว่า บ้านจะสวยขึ้นแค่ไหน]", "en": "[One line on how much better your home will look]" },
-    "lead": { "th": "[คำโปรยหนึ่งบรรทัด: เราทำอะไร ให้ใคร]", "en": "[One line: what we do and for whom]" },
-    "photo": { "job": "minburi-private-residence", "n": 2 }
+    "title": {
+      "th": "ม่านดีหนึ่งผืน เปลี่ยนทั้งห้อง",
+      "en": "The right curtain changes the whole room"
+    },
+    "lead": {
+      "th": "ผ้าม่าน วอลเปเปอร์ และมู่ลี่ไม้ สั่งตัดตามหน้างาน วัดและติดตั้งให้ครบในที่เดียว",
+      "en": "Made-to-measure curtains, wallpaper and wooden blinds, measured and installed for you"
+    },
+    "photo": {
+      "job": "minburi-private-residence",
+      "n": 2
+    }
   },
   "about": {
-    "title": { "th": "[หัวข้อแนะนำตัว เช่น เราเริ่มจากบ้านหลังแรก แล้วไม่เคยหยุด]", "en": "[About headline, e.g. It started with one home, and we never stopped]" },
-    "text": { "th": "[สองถึงสามประโยค เล่าว่าร้านเริ่มทำเพราะอะไร ดูแลลูกค้าแบบไหน และอะไรที่ไม่ยอมลดมาตรฐาน]", "en": "[Two or three sentences: why we started, how we look after clients, what we never compromise on]" },
-    "sign": { "th": "— P'Kim", "en": "— P'Kim" },
-    "photo": { "job": "ban-dong-ma-fai", "n": 1 },
+    "title": {
+      "th": "ทุกห้องมีแสงของมันเอง เราแค่ช่วยจัดให้ลงตัว",
+      "en": "Every room has its own light. We help it fall just right"
+    },
+    "text": {
+      "th": "เราเริ่มจากงานผ้าม่านบ้านทีละหลัง และยังทำงานแบบนั้นมาจนถึงวันนี้ ไปดูหน้างานจริง วัดเอง ช่วยเลือกผ้าให้เข้ากับแสงและการใช้ห้อง แล้วติดตั้งจนเรียบร้อย สิ่งที่เราไม่ยอมลดคือความเนี้ยบของงานที่ลูกค้าต้องอยู่กับมันทุกวัน",
+      "en": "We started with curtains for one home at a time, and we still work that way. We visit the site, measure it ourselves, help you choose fabric that suits the light and how the room is used, then install it properly. The one thing we never cut corners on is the finish you'll live with every day."
+    },
+    "sign": {
+      "th": "— P'Kim",
+      "en": "— P'Kim"
+    },
+    "photo": {
+      "job": "ban-dong-ma-fai",
+      "n": 1
+    },
     "stats": [
-      { "value": "[xx]", "label": { "th": "ปีประสบการณ์", "en": "Years of experience" } },
-      { "value": "[xxx+]", "label": { "th": "งานที่ส่งมอบ", "en": "Projects delivered" } },
-      { "value": "[xx]", "label": { "th": "ทีมช่างของเราเอง", "en": "In-house installers" } }
+      {
+        "value": "[xx]",
+        "label": {
+          "th": "ปีประสบการณ์",
+          "en": "Years of experience"
+        }
+      },
+      {
+        "value": "[xxx+]",
+        "label": {
+          "th": "งานที่ส่งมอบ",
+          "en": "Projects delivered"
+        }
+      },
+      {
+        "value": "[xx]",
+        "label": {
+          "th": "ทีมช่างของเราเอง",
+          "en": "In-house installers"
+        }
+      }
     ]
   },
   "products": {
-    "title": { "th": "สินค้าหลักของเรา", "en": "Our main products" },
-    "lead": { "th": "กดที่สินค้าเพื่อดูรายละเอียด และผลงานที่ใช้สินค้านั้น", "en": "Tap a product for details and projects that use it" },
+    "title": {
+      "th": "สินค้าหลักของเรา",
+      "en": "Our main products"
+    },
+    "lead": {
+      "th": "กดที่สินค้าเพื่อดูรายละเอียด และผลงานที่ใช้สินค้านั้น",
+      "en": "Tap a product for details and projects that use it"
+    },
     "items": [
       {
         "id": "p1",
-        "name": { "th": "[สินค้าหลัก 1 เช่น ผ้าม่าน]", "en": "[Product 1, e.g. Curtains]" },
-        "sub": { "th": "[เหมาะกับห้องแบบไหน]", "en": "[Best for which rooms]" },
-        "description": { "th": "[คำอธิบาย 2-3 บรรทัด: คืออะไร ใช้วัสดุอะไร จุดเด่น]", "en": "[2-3 lines: what it is, materials, strengths]" },
+        "name": {
+          "th": "ผ้าม่าน",
+          "en": "Curtains"
+        },
+        "sub": {
+          "th": "ห้องนอน ห้องนั่งเล่น และพื้นที่ที่ต้องการความนุ่มนวล",
+          "en": "Bedrooms, living rooms and any room that needs softness"
+        },
+        "description": {
+          "th": "สั่งตัดตามขนาดหน้าต่างจริง เลือกได้ทั้งม่านจีบ ม่านลอน และม่านโปร่ง เลือกระดับกันแสงได้ตั้งแต่โปร่งแสงจนถึงทึบแสง (Blackout) เหมาะกับห้องนอน",
+          "en": "Made to your real window size: pleated, wave or sheer. Choose how much light to block, from sheer to full blackout for bedrooms."
+        },
         "specs": [
-          [{ "th": "วัสดุ", "en": "Material" }, { "th": "[ระบุ]", "en": "[Specify]" }],
-          [{ "th": "สี/ลาย", "en": "Colours" }, { "th": "[มีกี่แบบ]", "en": "[How many]" }],
-          [{ "th": "ขนาด", "en": "Size" }, { "th": "[สั่งตัดตามหน้างาน?]", "en": "[Made to measure?]" }],
-          [{ "th": "ราคาเริ่มต้น", "en": "From" }, { "th": "[ถ้าอยากแสดง]", "en": "[If shown]" }]
+          [
+            {
+              "th": "รูปแบบ",
+              "en": "Styles"
+            },
+            {
+              "th": "ม่านจีบ · ม่านลอน · ม่านโปร่ง",
+              "en": "Pleated · Wave · Sheer"
+            }
+          ],
+          [
+            {
+              "th": "กันแสง",
+              "en": "Light control"
+            },
+            {
+              "th": "โปร่งแสง ถึง Blackout",
+              "en": "Sheer to blackout"
+            }
+          ],
+          [
+            {
+              "th": "ขนาด",
+              "en": "Size"
+            },
+            {
+              "th": "สั่งตัดตามหน้างาน",
+              "en": "Made to measure"
+            }
+          ],
+          [
+            {
+              "th": "ราคาเริ่มต้น",
+              "en": "From"
+            },
+            {
+              "th": "[ราคาจริง หรือ สอบถามราคา]",
+              "en": "[Real price, or Ask for a quote]"
+            }
+          ]
         ],
         "jobType": "ผ้าม่าน",
-        "photos": [{ "job": "minburi-private-residence", "n": 6 }, { "job": "d-condo-vivid", "n": 3 }, { "job": "minburi-private-residence", "n": 8 }, { "job": "samkhok", "n": 4 }]
+        "photos": [
+          {
+            "job": "minburi-private-residence",
+            "n": 6
+          },
+          {
+            "job": "d-condo-vivid",
+            "n": 3
+          },
+          {
+            "job": "minburi-private-residence",
+            "n": 8
+          },
+          {
+            "job": "samkhok",
+            "n": 4
+          }
+        ]
       },
       {
         "id": "p2",
-        "name": { "th": "[สินค้าหลัก 2 เช่น วอลเปเปอร์]", "en": "[Product 2, e.g. Wallpaper]" },
-        "sub": { "th": "[เหมาะกับห้องแบบไหน]", "en": "[Best for which rooms]" },
-        "description": { "th": "[คำอธิบาย 2-3 บรรทัด]", "en": "[2-3 lines]" },
+        "name": {
+          "th": "วอลเปเปอร์",
+          "en": "Wallpaper"
+        },
+        "sub": {
+          "th": "ผนังห้องนั่งเล่น ห้องนอน และพื้นที่ทำงาน",
+          "en": "Feature walls, bedrooms and work spaces"
+        },
+        "description": {
+          "th": "เปลี่ยนบรรยากาศห้องได้ในไม่กี่วัน ช่วยเลือกลายและสีให้เข้ากับเฟอร์นิเจอร์และแสงในห้อง ทีมช่างเตรียมผนังและติดให้รอยต่อเรียบเนียน",
+          "en": "A new feel for a room in days. We help you pick patterns and colours that suit your furniture and light, then prepare the wall and hang it with clean seams."
+        },
         "specs": [
-          [{ "th": "วัสดุ", "en": "Material" }, { "th": "[ระบุ]", "en": "[Specify]" }],
-          [{ "th": "สี/ลาย", "en": "Patterns" }, { "th": "[มีกี่แบบ]", "en": "[How many]" }],
-          [{ "th": "ราคาเริ่มต้น", "en": "From" }, { "th": "[ถ้าอยากแสดง]", "en": "[If shown]" }]
+          [
+            {
+              "th": "วัสดุ",
+              "en": "Material"
+            },
+            {
+              "th": "[ชนิดวอลเปเปอร์ที่ร้านมี]",
+              "en": "[Types the shop carries]"
+            }
+          ],
+          [
+            {
+              "th": "สี/ลาย",
+              "en": "Patterns"
+            },
+            {
+              "th": "มีแค็ตตาล็อกให้เลือก",
+              "en": "Catalogue to choose from"
+            }
+          ],
+          [
+            {
+              "th": "ราคาเริ่มต้น",
+              "en": "From"
+            },
+            {
+              "th": "[ราคาจริง หรือ สอบถามราคา]",
+              "en": "[Real price, or Ask for a quote]"
+            }
+          ]
         ],
         "jobType": "วอลเปเปอร์",
-        "photos": [{ "job": "factory-bangkok-2026-11", "n": 2 }, { "job": "factory-bangkok-2026-11", "n": 6 }, { "job": "factory-bangkok-2026-11", "n": 5 }, { "job": "house-bangkok-2019-06", "n": 5 }]
+        "photos": [
+          {
+            "job": "factory-bangkok-2026-11",
+            "n": 2
+          },
+          {
+            "job": "factory-bangkok-2026-11",
+            "n": 6
+          },
+          {
+            "job": "factory-bangkok-2026-11",
+            "n": 5
+          },
+          {
+            "job": "house-bangkok-2019-06",
+            "n": 5
+          }
+        ]
       },
       {
         "id": "p3",
-        "name": { "th": "[สินค้าหลัก 3 เช่น มู่ลี่ไม้]", "en": "[Product 3, e.g. Wooden blinds]" },
-        "sub": { "th": "[เหมาะกับห้องแบบไหน]", "en": "[Best for which rooms]" },
-        "description": { "th": "[คำอธิบาย 2-3 บรรทัด]", "en": "[2-3 lines]" },
+        "name": {
+          "th": "มู่ลี่ไม้",
+          "en": "Wooden blinds"
+        },
+        "sub": {
+          "th": "ห้องทำงาน ห้องอาหาร และห้องที่อยากได้ลุคอบอุ่น",
+          "en": "Studies, dining rooms and rooms that want a warm look"
+        },
+        "description": {
+          "th": "ปรับมุมใบเพื่อคุมแสงและความเป็นส่วนตัวได้ละเอียด ผิวไม้ให้ความรู้สึกอบอุ่น ดูแลง่าย เข้ากับบ้านสไตล์โมเดิร์นและคลาสสิก",
+          "en": "Tilt the slats to fine-tune light and privacy. Wood brings warmth, is easy to care for, and suits both modern and classic homes."
+        },
         "specs": [
-          [{ "th": "วัสดุ", "en": "Material" }, { "th": "[ระบุ]", "en": "[Specify]" }],
-          [{ "th": "สี/ลาย", "en": "Finishes" }, { "th": "[มีกี่แบบ]", "en": "[How many]" }],
-          [{ "th": "ราคาเริ่มต้น", "en": "From" }, { "th": "[ถ้าอยากแสดง]", "en": "[If shown]" }]
+          [
+            {
+              "th": "วัสดุ",
+              "en": "Material"
+            },
+            {
+              "th": "[ไม้จริง / ไม้เทียม]",
+              "en": "[Real wood / faux wood]"
+            }
+          ],
+          [
+            {
+              "th": "สี/ลาย",
+              "en": "Finishes"
+            },
+            {
+              "th": "[จำนวนสีที่มี]",
+              "en": "[Number of finishes]"
+            }
+          ],
+          [
+            {
+              "th": "ราคาเริ่มต้น",
+              "en": "From"
+            },
+            {
+              "th": "[ราคาจริง หรือ สอบถามราคา]",
+              "en": "[Real price, or Ask for a quote]"
+            }
+          ]
         ],
         "jobType": "มู่ลี่ไม้",
-        "photos": [{ "job": "house-bangkok-2022-12", "n": 1 }, { "job": "house-bangkok-2022-12", "n": 3 }, { "job": "house-bangkok-2022-12", "n": 4 }, { "job": "house-bangkok-2022-12", "n": 5 }]
+        "photos": [
+          {
+            "job": "house-bangkok-2022-12",
+            "n": 1
+          },
+          {
+            "job": "house-bangkok-2022-12",
+            "n": 3
+          },
+          {
+            "job": "house-bangkok-2022-12",
+            "n": 4
+          },
+          {
+            "job": "house-bangkok-2022-12",
+            "n": 5
+          }
+        ]
       }
     ]
   },
   "why": {
-    "title": { "th": "ดูใกล้ๆ แล้วจะเห็นความต่าง", "en": "Look closer and you'll see the difference" },
-    "lead": { "th": "[ประโยคสั้นๆ เช่น ภาพจากหน้างานจริง ชี้ให้เห็นทีละจุดว่าเราทำต่างจากร้านทั่วไปอย่างไร]", "en": "[Short line, e.g. A real job site, point by point: how our work differs from a typical shop]" },
-    "photo": { "job": "wat-siri-sawang", "n": 4 },
+    "title": {
+      "th": "ดูใกล้ๆ แล้วจะเห็นความต่าง",
+      "en": "Look closer and you'll see the difference"
+    },
+    "lead": {
+      "th": "ภาพจากหน้างานจริง ชี้ให้เห็นทีละจุดว่างานของเราต่างจากงานทั่วไปตรงไหน",
+      "en": "A real job site, point by point: where our work differs"
+    },
+    "photo": {
+      "job": "wat-siri-sawang",
+      "n": 4
+    },
     "points": [
-      { "x": 62, "y": 18, "title": { "th": "[จุดที่ 1 เช่น รางและอุปกรณ์]", "en": "[Point 1, e.g. Tracks and hardware]" }, "other": { "th": "[ร้านทั่วไปทำแบบไหน]", "en": "[What typical shops do]" }, "ours": { "th": "[เราทำต่างอย่างไร]", "en": "[What we do differently]" }, "photo": { "job": "minburi-private-residence", "n": 8 } },
-      { "x": 40, "y": 58, "title": { "th": "[จุดที่ 2 เช่น เนื้อผ้าและการเย็บ]", "en": "[Point 2, e.g. Fabric and sewing]" }, "other": { "th": "[ร้านทั่วไปทำแบบไหน]", "en": "[What typical shops do]" }, "ours": { "th": "[เราทำต่างอย่างไร]", "en": "[What we do differently]" }, "photo": { "job": "d-condo-vivid", "n": 5 } },
-      { "x": 74, "y": 66, "title": { "th": "[จุดที่ 3 เช่น วัดและติดตั้งโดยทีมเราเอง]", "en": "[Point 3, e.g. Measured and installed by our own team]" }, "other": { "th": "[ร้านทั่วไปทำแบบไหน]", "en": "[What typical shops do]" }, "ours": { "th": "[เราทำต่างอย่างไร]", "en": "[What we do differently]" }, "photo": { "job": "wat-siri-sawang", "n": 6 } }
+      {
+        "x": 62,
+        "y": 18,
+        "title": {
+          "th": "รางและอุปกรณ์",
+          "en": "Tracks and hardware"
+        },
+        "other": {
+          "th": "ใช้รางสำเร็จรูปขนาดเดียว ติดแล้วม่านลากติดขัด",
+          "en": "One-size ready-made tracks that snag"
+        },
+        "ours": {
+          "th": "เลือกรางให้เหมาะกับน้ำหนักผ้าและหน้าต่าง ลากลื่นทั้งผืน",
+          "en": "Tracks matched to fabric weight and window, gliding smoothly end to end"
+        },
+        "photo": {
+          "job": "minburi-private-residence",
+          "n": 8
+        }
+      },
+      {
+        "x": 40,
+        "y": 58,
+        "title": {
+          "th": "เนื้อผ้าและการเย็บ",
+          "en": "Fabric and sewing"
+        },
+        "other": {
+          "th": "จีบไม่เท่ากัน ชายม่านเย็บไม่เรียบ",
+          "en": "Uneven pleats and rough hems"
+        },
+        "ours": {
+          "th": "คุมระยะจีบให้เท่ากัน ชายม่านเก็บเรียบ ทิ้งตัวสวย",
+          "en": "Even pleats and clean hems that hang beautifully"
+        },
+        "photo": {
+          "job": "d-condo-vivid",
+          "n": 5
+        }
+      },
+      {
+        "x": 74,
+        "y": 66,
+        "title": {
+          "th": "วัดและติดตั้งเอง",
+          "en": "Measured and installed by us"
+        },
+        "other": {
+          "th": "ให้ลูกค้าวัดเอง หรือส่งต่อช่างภายนอก",
+          "en": "You measure, or it's passed to outside fitters"
+        },
+        "ours": {
+          "th": "เราวัดหน้างานเองและติดตั้งจนเสร็จ รับผิดชอบงานทั้งหมด",
+          "en": "We measure on site and install it ourselves, start to finish"
+        },
+        "photo": {
+          "job": "wat-siri-sawang",
+          "n": 6
+        }
+      }
     ]
   },
   "portfolioBand": {
-    "title": { "th": "3 ผลงานที่เราภูมิใจ", "en": "Three projects we're proud of" },
-    "lead": { "th": "เลือกมาให้ดูก่อน 3 งาน ดูผลงานทั้งหมดได้ในหน้าผลงาน", "en": "A first look at three projects. See everything in our portfolio." }
+    "title": {
+      "th": "3 ผลงานที่เราภูมิใจ",
+      "en": "Three projects we're proud of"
+    },
+    "lead": {
+      "th": "เลือกมาให้ดูก่อน 3 งาน ดูผลงานทั้งหมดได้ในหน้าผลงาน",
+      "en": "A first look at three projects. See everything in our portfolio."
+    }
   },
   "reviews": [
-    { "text": { "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]", "en": "[A real client review, 2-3 lines]" }, "who": { "th": "[คุณ A · บ้านเดี่ยว กรุงเทพ]", "en": "[Khun A · House, Bangkok]" } },
-    { "text": { "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]", "en": "[A real client review, 2-3 lines]" }, "who": { "th": "[คุณ B · คอนโด กรุงเทพ]", "en": "[Khun B · Condo, Bangkok]" } },
-    { "text": { "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]", "en": "[A real client review, 2-3 lines]" }, "who": { "th": "[คุณ C · ทาวน์โฮม ปทุมธานี]", "en": "[Khun C · Townhome, Pathum Thani]" } }
+    {
+      "text": {
+        "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]",
+        "en": "[A real client review, 2-3 lines]"
+      },
+      "who": {
+        "th": "[คุณ A · บ้านเดี่ยว กรุงเทพ]",
+        "en": "[Khun A · House, Bangkok]"
+      }
+    },
+    {
+      "text": {
+        "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]",
+        "en": "[A real client review, 2-3 lines]"
+      },
+      "who": {
+        "th": "[คุณ B · คอนโด กรุงเทพ]",
+        "en": "[Khun B · Condo, Bangkok]"
+      }
+    },
+    {
+      "text": {
+        "th": "[ข้อความรีวิวจริงจากลูกค้า 2-3 บรรทัด]",
+        "en": "[A real client review, 2-3 lines]"
+      },
+      "who": {
+        "th": "[คุณ C · ทาวน์โฮม ปทุมธานี]",
+        "en": "[Khun C · Townhome, Pathum Thani]"
+      }
+    }
   ],
   "contact": {
-    "phones": ["096-836-5245", "089-669-8270"],
+    "phones": [
+      "096-836-5245",
+      "089-669-8270"
+    ],
     "line": "@goldenlux.curtain",
     "lineUrl": "https://line.me/R/ti/p/@goldenlux.curtain",
-    "facebook": { "th": "เพจ Facebook", "en": "Facebook page" },
+    "facebook": {
+      "th": "เพจ Facebook",
+      "en": "Facebook page"
+    },
     "facebookUrl": "https://www.facebook.com/profile.php?id=100063692205341",
-    "address": { "th": "[ที่อยู่ร้าน]", "en": "[Shop address]" },
-    "hours": { "th": "[เวลาทำการ]", "en": "[Opening hours]" },
+    "address": {
+      "th": "[ที่อยู่ร้าน]",
+      "en": "[Shop address]"
+    },
+    "hours": {
+      "th": "[เวลาทำการ]",
+      "en": "[Opening hours]"
+    },
     "mapEmbedUrl": ""
   },
   "portfolio": {
-    "heroTitle": { "th": "Portfolio", "en": "Portfolio" },
-    "heroLead": { "th": "[ประโยคสั้นๆ เช่น ทุกบ้านที่เราทำ มีเรื่องเล่าของมันเอง]", "en": "[Short line, e.g. Every home we dress has its own story]" },
-    "heroPhoto": { "job": "minburi-private-residence", "n": 4 },
-    "introQuote": { "th": "[ประโยคเปิดที่บอกตัวตนของงาน เช่น เราไม่ได้แค่ติดตั้ง เราทำให้ห้องเปลี่ยนไป]", "en": "[Opening line, e.g. We don't just install. We change how a room feels]" },
-    "introText": { "th": "[ย่อหน้าสั้นๆ ว่างานแบบไหนที่เราทำ และคัดผลงานในหน้านี้มาอย่างไร]", "en": "[Short paragraph: the work we do and how these projects were chosen]" },
-    "ctaTitle": { "th": "ให้บ้านของคุณเป็นผลงานชิ้นถัดไป", "en": "Let your home be our next project" },
-    "ctaPhoto": { "job": "minburi-private-residence", "n": 17 }
+    "heroTitle": {
+      "th": "Portfolio",
+      "en": "Portfolio"
+    },
+    "heroLead": {
+      "th": "ทุกบ้านที่เราทำ มีเรื่องเล่าของมันเอง",
+      "en": "Every home we dress has its own story"
+    },
+    "heroPhoto": {
+      "job": "minburi-private-residence",
+      "n": 4
+    },
+    "introQuote": {
+      "th": "เราไม่ได้แค่ติดม่าน เราทำให้ห้องรู้สึกต่างไป",
+      "en": "We don't just hang curtains. We change how a room feels"
+    },
+    "introText": {
+      "th": "รวมงานจริงจากบ้าน คอนโด สำนักงาน และวัด ทั้งผ้าม่าน วอลเปเปอร์ มู่ลี่ และม่านม้วน เลือกดูตามประเภทงานหรือแบบม่านได้ แต่ละงานมีรูปและเรื่องราวของหน้างานนั้น",
+      "en": "Real projects from homes, condos, offices and temples: curtains, wallpaper, blinds and roller shades. Filter by job or curtain type; each project has its own photos and story."
+    },
+    "ctaTitle": {
+      "th": "ให้บ้านของคุณเป็นผลงานชิ้นถัดไป",
+      "en": "Let your home be our next project"
+    },
+    "ctaPhoto": {
+      "job": "minburi-private-residence",
+      "n": 17
+    }
   }
 }
