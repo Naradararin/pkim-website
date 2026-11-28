@@ -76,6 +76,21 @@ const otherHref = url(alt, other);
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") setDrawer(false); });
     </script>
     <script>
+      // Back buttons: if we came from that page, go back so its scroll position is kept
+      document.addEventListener("click", (e) => {
+        const a = (e.target as Element).closest<HTMLAnchorElement>("[data-back]");
+        if (!a || !document.referrer) return;
+        const ref = new URL(document.referrer);
+        if (ref.origin === location.origin && ref.pathname === a.pathname && history.length > 1) { e.preventDefault(); history.back(); }
+      });
+      // Portfolio hero: photos keep swapping with a curtain wipe, and lean toward the pointer
+      const cyc = document.querySelector<HTMLElement>("[data-cycle]");
+      if (cyc && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const frames = [...cyc.querySelectorAll<HTMLElement>(".c .fl")].filter((f) => f.children.length > 1);
+        let k = 0;
+        setInterval(() => { const f = frames[k++ % frames.length]; if (!f) return; const imgs = [...f.children]; const i = imgs.findIndex((e) => e.classList.contains("on")); imgs[i].classList.remove("on"); imgs[(i + 1) % imgs.length].classList.add("on"); }, 1400);
+        cyc.addEventListener("pointermove", (e) => { const r = cyc.getBoundingClientRect(); cyc.style.setProperty("--mx", ((e.clientX - r.left) / r.width - .5).toFixed(3)); cyc.style.setProperty("--my", ((e.clientY - r.top) / r.height - .5).toFixed(3)); });
+      }
       // Glide to in-page sections instead of jumping
       const ease = (t: number) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
       document.addEventListener("click", (e) => {

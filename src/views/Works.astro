@@ -11,14 +11,14 @@ const P = site.portfolio;
 const provinces = new Set(jobs.map((j) => j.province)).size;
 const count = (key: "jobTypes" | "curtainTypes", v: string) => jobs.filter((j) => j[key].includes(v)).length;
 const line = lineHref(lang);
-const heroPics = [...new Set(featured.flatMap((j) => [j.coverImg, ...j.photos]).filter(Boolean))].filter((_, i) => i % 2 === 0).slice(0, 5);
+const heroPics = [...new Set(featured.flatMap((j) => j.photos.filter((_, n) => !(j.id === "minburi-private-residence" && n === 10))).filter(Boolean))].filter((_, i) => i % 2 === 0).slice(0, 15);
 ---
 <Base lang={lang} alt="/portfolio/" title={t(lang, "nav.portfolio")}>
   <WorksHeader lang={lang} alt="/portfolio/" />
   <main>
-    <section class="w-hero2">
+    <section class="w-hero2" data-cycle>
       <div class="collage" aria-hidden="true">
-        {heroPics.map((src, i) => <div class={`c c${i + 1}`} data-speed={[0.12, -0.08, 0.2, -0.14, 0.06][i]}><Img src={src} alt="" sizes="(max-width: 760px) 50vw, 30vw" widths={[480, 960]} loading="eager" /></div>)}
+        {[0, 1, 2, 3, 4].map((i) => <div class={`c c${i + 1}`} data-speed={[0.12, -0.08, 0.2, -0.14, 0.06][i]}><div class="fl">{[i, i + 5, i + 10].filter((k) => heroPics[k]).map((k, n) => <Img class={n === 0 ? "on" : ""} src={heroPics[k]} alt="" sizes="(max-width: 760px) 50vw, 30vw" widths={[480, 960]} loading={n === 0 ? "eager" : "lazy"} />)}</div></div>)}
       </div>
       <div class="wrap type">
         <span class="eyebrow">{site.business.brand} · {t(lang, "works.eyebrow")}</span>

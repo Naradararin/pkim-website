@@ -36,8 +36,14 @@
       "cover": 2,
       "facebook": "https://www.facebook.com/share/p/1CAZRSWWts/",
       "featured": 1,
-      "summary": null,
-      "story": null
+      "summary": {
+        "th": "บ้านเดี่ยวหลังใหญ่ที่ต้องการทั้งความหรูและความมืดสนิทในห้องนอน เราจัดผ้าม่านลอน ม่านจีบ และมู่ลี่ พร้อมวอลเปเปอร์ให้ทั้งหลัง",
+        "en": "A large private home that wanted luxury and full darkness in the bedrooms. We fitted wave and pinch-pleat curtains, blinds and wallpaper throughout."
+      },
+      "story": {
+        "th": "เจ้าของบ้านอยากให้ห้องนอนมืดสนิทเวลาพักผ่อน แต่ช่วงกลางวันยังได้แสงนุ่มๆ เราจึงวางม่านสองชั้น ชั้นในเป็นผ้าโปร่งให้แสงลอดผ่าน ชั้นนอกเป็นผ้า Blackout 100% ส่วนห้องนั่งเล่นใช้ม่านลอนให้ดูโปร่งและทันสมัย แล้วใช้ม่านจีบในห้องที่อยากให้ดูหรูขึ้น จบด้วยวอลเปเปอร์โทนเดียวกับผ้า ให้ทั้งบ้านดูเป็นเรื่องเดียวกัน",
+        "en": "The owners wanted bedrooms that go fully dark for rest, with soft daylight during the day. We layered sheers under 100% blackout fabric, used wave curtains in the living areas for a light, modern look, pinch pleats where the room called for more formality, and finished with wallpaper toned to the fabrics so the whole house reads as one story."
+      }
     },
     {
       "id": "navara-rangsit-klong-2",
@@ -58,8 +64,14 @@
       "cover": 5,
       "facebook": "https://www.facebook.com/share/p/1DzjNkTYvQ/",
       "featured": 2,
-      "summary": null,
-      "story": null
+      "summary": {
+        "th": "บ้านเดี่ยวโครงการ NAVARA ที่อยากได้ม่านลอนเรียบหรู คุมแสงได้พอดี เราใช้ผ้า Dimout ร่วมกับมู่ลี่",
+        "en": "A NAVARA family home that wanted clean, elegant wave curtains with balanced light. We used dimout fabric together with blinds."
+      },
+      "story": {
+        "th": "บ้านหลังนี้มีหน้าต่างบานใหญ่และแสงเข้าเยอะ เจ้าของบ้านไม่อยากให้มืดทึบ แต่ก็ไม่อยากให้แดดแรงเกินไป เราเลือกผ้า Dimout ที่กันแสงได้ราว 80-90% ทำเป็นม่านลอนให้จีบสวยเท่ากันทุกลอน และใช้มู่ลี่ในจุดที่ต้องปรับแสงบ่อย ห้องจึงสว่างสบายตาตลอดวัน",
+        "en": "This home has large windows and a lot of light. The owners didn't want it dark, just calmer. We chose dimout fabric that blocks around 80-90% of light, made into wave curtains with evenly spaced folds, and added blinds where the light needs adjusting often, so the rooms stay bright and easy on the eyes all day."
+      }
     },
     {
       "id": "d-condo-vivid",
@@ -79,8 +91,14 @@
       "cover": 2,
       "facebook": "https://www.facebook.com/share/p/19ZmiR97T4/",
       "featured": 3,
-      "summary": null,
-      "story": null
+      "summary": {
+        "th": "คอนโดที่ต้องการม่านลอนดูโล่ง สะอาดตา และช่วยลดแสงแดดยามบ่าย เราใช้ผ้า Dimout ให้เข้ากับห้อง",
+        "en": "A condo that wanted airy, clean wave curtains that soften the afternoon sun. We used dimout fabric to suit the space."
+      },
+      "story": {
+        "th": "ห้องคอนโดพื้นที่จำกัด ม่านจึงต้องดูเบาและไม่กินพื้นที่ เราเลือกม่านลอนที่เก็บตัวได้แคบ ใช้ผ้า Dimout โทนอ่อนช่วยกรองแดดบ่ายให้ห้องเย็นสบายขึ้น โดยห้องยังดูกว้างและสว่าง",
+        "en": "In a compact condo the curtains need to feel light and take up little space. We chose wave curtains that stack neatly and a pale dimout fabric that filters the afternoon sun, keeping the room cooler while it still feels open and bright."
+      }
     },
     {
       "id": "factory-bangkok-2026-11",

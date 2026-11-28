@@ -696,7 +696,7 @@ body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .about3 .cap b { font-family: var(--display); font-stretch: var(--display-stretch); font-weight: 200; font-size: clamp(40px, 4.4vw, 68px); line-height: 1; color: var(--accent-text); }
 .about3 .cap span { font-size: 13px; color: var(--muted); }
 .about3 .story .cap p { font-size: 14.5px; line-height: 1.7; color: var(--fg); }
-.about3 .story .sign { font-family: "Pinyon Script", cursive; font-size: 26px; color: var(--accent); }
+.about3 .story .sign { font-family: var(--display); font-stretch: var(--display-stretch); font-weight: 100; font-size: 30px; color: var(--accent-text); }
 @media (max-width: 860px) {
   .about3 .cols { flex-direction: column; height: auto; }
   .about3 .col { height: 62vw; flex: none !important; }
@@ -704,3 +704,18 @@ body { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   .about3 .head { align-items: center; }
 }
 @media (prefers-reduced-motion: reduce) { .about3 .im, .about3 .cap, .about3 .w > span { clip-path: none; opacity: 1; translate: none; transform: none; transition: none; } }
+
+/* Portfolio hero: always moving (float, pointer lean, photo swaps) */
+.w-hero2 { --mx: 0; --my: 0; }
+.w-hero2 .c .fl { position: absolute; inset: -12%; animation: drift 7s ease-in-out infinite alternate; transform-origin: 50% 60%; translate: calc(var(--mx) * var(--z, 30px)) calc(var(--my) * var(--z, 30px)); transition: translate .9s cubic-bezier(.2,.8,.2,1); }
+.w-hero2 .c2 .fl { --z: -46px; animation-duration: 8.5s; animation-delay: -2s; }
+.w-hero2 .c3 .fl { --z: 60px; animation-duration: 6s; animation-delay: -4s; }
+.w-hero2 .c4 .fl { --z: -38px; animation-duration: 9s; animation-delay: -1s; }
+.w-hero2 .c5 .fl { --z: 52px; animation-duration: 7.5s; animation-delay: -3s; }
+.w-hero2 .c .fl img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; clip-path: inset(0 0 0 100%); transform: scale(1.15); transition: clip-path 1.2s cubic-bezier(.7,0,.2,1), transform 2.4s cubic-bezier(.2,.8,.2,1); }
+.w-hero2 .c .fl img.on { clip-path: inset(0); transform: scale(1); z-index: 1; }
+.w-hero2 .c { overflow: hidden; }
+@keyframes drift { 0% { transform: translateY(0) rotate(-1deg) scale(1.02); } 50% { transform: translateY(-12px) rotate(.6deg) scale(1.06); } 100% { transform: translateY(8px) rotate(1.2deg) scale(1.03); } }
+.w-hero2 h1 { animation: breathe 9s ease-in-out infinite alternate; }
+@keyframes breathe { from { letter-spacing: .05em; } to { letter-spacing: .09em; } }
+@media (prefers-reduced-motion: reduce) { .w-hero2 .c .fl, .w-hero2 h1 { animation: none; } .w-hero2 .c .fl img:not(.on) { display: none; } }

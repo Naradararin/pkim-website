@@ -387,7 +387,7 @@
       "en": "Facebook page"
     },
     "facebookUrl": "https://www.facebook.com/profile.php?id=100063692205341",
-    "showFacebook": false,
+    "showFacebook": true,
     "address": {
       "th": "67/89 ซอยคลองหลวง 17 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 12120",
       "en": "67/89 Soi Khlong Luang 17, Khlong Nueng, Khlong Luang, Pathum Thani 12120"
@@ -397,7 +397,7 @@
       "en": "Shop open Sun–Fri 9:00–21:00 (closed Saturdays)"
     },
     "mapEmbedUrl": "https://www.google.com/maps?q=67/89%20%E0%B8%8B%E0%B8%AD%E0%B8%A2%E0%B8%84%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87%2017%20%E0%B8%95.%E0%B8%84%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%AB%E0%B8%99%E0%B8%B6%E0%B9%88%E0%B8%87%20%E0%B8%AD.%E0%B8%84%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87%20%E0%B8%88.%E0%B8%9B%E0%B8%97%E0%B8%B8%E0%B8%A1%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%B5%2012120&output=embed",
-    "mapUrl": "https://maps.app.goo.gl/dRA54BsDm2pm7AHc8"
+    "mapUrl": "https://maps.app.goo.gl/qghKi9D3hriZXYSc7"
   },
   "portfolio": {
     "heroTitle": {
